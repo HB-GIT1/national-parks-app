@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>National Parks of the American West — Interactive Atlas</title>
+<title>Nationalparks des amerikanischen Westens — Interaktiver Atlas</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -522,7 +522,7 @@
     border-color: rgba(232, 180, 76, 0.35);
   }
   .loop-card.featured::before {
-    content: 'Featured Trip';
+    content: 'Empfohlene Route';
     position: absolute;
     top: -0.6rem;
     left: 1rem;
@@ -2325,11 +2325,11 @@
 <!-- ========== HERO ========== -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-kicker">An Interactive Atlas · Est. 2026</div>
-    <h1>National Parks<br>of the <em>American West</em></h1>
+    <div class="hero-kicker">Ein interaktiver Atlas · Est. 2026</div>
+    <h1>Nationalparks<br>des <em>amerikanischen Westens</em></h1>
     <p class="hero-sub">
       Zwölf Parks zwischen Pazifikküste, Sierra Nevada und den Rocky Mountains —
-      kuratiert, kartiert, und verknüpft durch die großen Road-Trip-Routen des Westens.
+      kuratiert, kartiert, und verknüpft durch die großen Straßenrouten des Westens.
     </p>
     <div class="hero-meta">
       <div class="hero-meta-item"><span class="value">12</span><span>Parks</span></div>
@@ -2342,10 +2342,10 @@
 
 <div class="container">
 
-  <section class="quick-start" aria-label="Quick start">
+  <section class="quick-start" aria-label="Schnellstart">
     <div class="quick-start-main">
-      <div class="quick-start-kicker">Quick Start</div>
-      <h2 class="quick-start-title">Plan the West by route, not by random park clicks.</h2>
+      <div class="quick-start-kicker">Schnellstart</div>
+      <h2 class="quick-start-title">Plane den Westen über Routen, nicht über zufällige Park-Klicks.</h2>
       <p class="quick-start-copy">
         Der neue Fokus liegt auf kuratierten Roadtrips statt auf einer bloßen Atlas-Ansicht. Starte mit einer fertigen Route, wähle einen Flughafen als Einstieg und vertiefe dann die Parks, die wirklich zu deinem Reiseprofil passen.
       </p>
@@ -2367,12 +2367,12 @@
         </button>
       </div>
     </div>
-    <aside class="quick-start-side" aria-label="Product framing">
-      <div class="quick-start-kicker">Why this changes</div>
+    <aside class="quick-start-side" aria-label="Produktlogik">
+      <div class="quick-start-kicker">Warum das besser ist</div>
       <ul>
-        <li><strong>Curated loops first</strong><span>Die wichtigsten Routen werden wie ein Reiseprodukt erzählt und nicht nur als Verbindungslinien gezeigt.</span></li>
-        <li><strong>Map as product surface</strong><span>Die Karte wird zum Navigationsraum für Route, Park und später Build-Mode.</span></li>
-        <li><strong>Airport-aware planning</strong><span>Eintritt in die Route wird künftig über Flughäfen und reale Anreise gedacht.</span></li>
+        <li><strong>Kuratierte Loops zuerst</strong><span>Die wichtigsten Routen werden wie ein Reiseprodukt erzählt und nicht nur als Verbindungslinien gezeigt.</span></li>
+        <li><strong>Karte als Produktfläche</strong><span>Die Karte wird zum Navigationsraum für Route, Park und später den Routenbau.</span></li>
+        <li><strong>Flughafenbewusste Planung</strong><span>Der Eintritt in die Route wird über Flughäfen und reale Anreise gedacht.</span></li>
       </ul>
     </aside>
   </section>
@@ -2396,23 +2396,23 @@
     <div class="map-card">
       <div class="map-header">
         <div>
-          <div class="map-header-label">Western United States</div>
-          <div class="map-header-title">Explore · Route · Park · Build</div>
+          <div class="map-header-label">Westen der USA</div>
+          <div class="map-header-title">Entdecken · Route · Park · Routenbau</div>
           <div class="map-data-status" id="route-data-status" aria-live="polite"></div>
         </div>
         <div class="map-zoom-badge" id="zoom-badge">100%</div>
       </div>
-      <div id="map" aria-label="Interactive map of the western United States"></div>
+      <div id="map" aria-label="Interaktive Karte des Westens der USA"></div>
       <div class="map-loading" id="map-loading">Karte wird geladen</div>
       <div class="map-park-tooltip" id="map-park-tooltip" aria-hidden="true"></div>
       <div class="map-footer">
-        <span>Albers USA Projection</span>
+        <span>Albers-USA-Projektion</span>
         <span>U.S. Census Bureau · 2017</span>
       </div>
       <div class="map-legend" id="map-legend" aria-hidden="true"></div>
-      <button class="build-fab" id="build-fab" aria-label="Build custom route">
+      <button class="build-fab" id="build-fab" aria-label="Eigene Route bauen">
         <span class="build-fab-dot"></span>
-        <span id="build-fab-label">Build Route</span>
+        <span id="build-fab-label">Route bauen</span>
       </button>
     </div>
 
@@ -2421,9 +2421,9 @@
       <div class="slideover" id="slideover-slot">
         <div class="slideover-panel">
           <div class="slideover-empty">
-            <h3>Select a route or park</h3>
-            <p>Choose a curated loop below to open the full trip brief — with day-by-day itinerary, overnight bases, drive times, and airport connections. Or tap any park on the map for details.</p>
-            <p>Use Build Mode to assemble your own route from scratch.</p>
+            <h3>Wähle eine Route oder einen Park</h3>
+            <p>Öffne unten eine kuratierte Route für den kompletten Routenbrief mit Tagesstruktur, Übernachtungsbasen, Fahrzeiten und Flughafen-Einstieg. Oder tippe direkt einen Park auf der Karte an.</p>
+            <p>Im Routenbau kannst du dir eine eigene Route zusammenstellen.</p>
           </div>
         </div>
       </div>
@@ -2433,11 +2433,11 @@
 
   <section class="route-hub" aria-labelledby="route-hub-title">
     <div class="section-heading">
-      <h2 id="route-hub-title">The Great <em>Loops</em></h2>
-      <span class="hint">Curated · not algorithmic</span>
+      <h2 id="route-hub-title">Die großen <em>Loops</em></h2>
+      <span class="hint">Kuratiert · nicht algorithmisch</span>
     </div>
     <p class="loop-hub-lede">
-      Vier Antworten auf die Frage „welchen Westen willst du sehen?" — jede Loop existiert aus einem konkreten Grund, nicht weil sie gut aussieht auf einer Karte.
+      Vier Antworten auf die Frage „welchen Westen willst du sehen?" — jede Route existiert aus einem konkreten Grund, nicht weil sie gut aussieht auf einer Karte.
     </p>
     <div class="route-grid" id="route-grid"></div>
   </section>
@@ -2452,8 +2452,8 @@
 </div>
 
 <footer>
-  <p>National Parks of the American West · Route-first trip planning</p>
-  <p>4 curated loops · operational itineraries · official road routes · Build Mode · Google &amp; Apple Maps export</p>
+  <p>Nationalparks des amerikanischen Westens · Routenorientierte Reiseplanung</p>
+  <p>4 kuratierte Loops · operative Reisepläne · offizielle Straßenrouten · Routenbau · Google-&amp;-Apple-Maps-Export</p>
 </footer>
 
 <script>
@@ -2464,7 +2464,7 @@ const PARKS = [
   // ========= WEST COAST =========
   {
     id: "yosemite", name: "Yosemite", state: "California", stateCode: "CA",
-    region: "West Coast", type: "Berg",
+    region: "Westküste", type: "Berg",
     lat: 37.8651, lng: -119.5383, area: 3029, established: 1890, featured: "span-8",
     // Export anchor: Yosemite Valley Visitor Center
     exportLat: 37.7489, exportLng: -119.5885,
@@ -2477,7 +2477,7 @@ const PARKS = [
   },
   {
     id: "redwood", name: "Redwood", state: "California", stateCode: "CA",
-    region: "West Coast", type: "Wald",
+    region: "Westküste", type: "Wald",
     lat: 41.2132, lng: -124.0046, area: 562, established: 1968,
     // Export anchor: Thomas H. Kuchel Visitor Center (Hwy 101 access)
     exportLat: 41.2954, exportLng: -124.0621,
@@ -2490,7 +2490,7 @@ const PARKS = [
   },
   {
     id: "sequoia", name: "Sequoia", state: "California", stateCode: "CA",
-    region: "West Coast", type: "Wald",
+    region: "Westküste", type: "Wald",
     lat: 36.4864, lng: -118.5658, area: 1635, established: 1890,
     // Export anchor: Foothills Visitor Center, south entrance
     exportLat: 36.4896, exportLng: -118.8340,
@@ -2503,7 +2503,7 @@ const PARKS = [
   },
   {
     id: "rainier", name: "Mount Rainier", state: "Washington", stateCode: "WA",
-    region: "West Coast", type: "Berg",
+    region: "Westküste", type: "Berg",
     lat: 46.8523, lng: -121.7603, area: 956, established: 1899,
     // Export anchor: Nisqually Entrance / Longmire (main road access)
     exportLat: 46.7423, exportLng: -121.8608,
@@ -2516,7 +2516,7 @@ const PARKS = [
   },
   {
     id: "northcascades", name: "North Cascades", state: "Washington", stateCode: "WA",
-    region: "West Coast", type: "Berg",
+    region: "Westküste", type: "Berg",
     lat: 48.7718, lng: -121.2985, area: 2042, established: 1968,
     // Export anchor: North Cascades Visitor Center, Newhalem
     exportLat: 48.6715, exportLng: -121.2448,
@@ -2529,7 +2529,7 @@ const PARKS = [
   },
   {
     id: "olympic", name: "Olympic", state: "Washington", stateCode: "WA",
-    region: "West Coast", type: "Küste",
+    region: "Westküste", type: "Küste",
     lat: 47.8021, lng: -123.6044, area: 3734, established: 1938, featured: "span-6",
     // Export anchor: Olympic National Park Visitor Center, Port Angeles
     exportLat: 48.1019, exportLng: -123.4307,
@@ -2542,7 +2542,7 @@ const PARKS = [
   },
   {
     id: "joshuatree", name: "Joshua Tree", state: "California", stateCode: "CA",
-    region: "West Coast", type: "Wüste",
+    region: "Westküste", type: "Wüste",
     lat: 33.8734, lng: -115.9010, area: 3218, established: 1994,
     // Export anchor: Joshua Tree Visitor Center, 29 Palms entrance
     exportLat: 34.1347, exportLng: -116.3108,
@@ -2648,7 +2648,7 @@ const LOOPS = [
       [-110.40, 45.03]
     ],
     parks: ["grandteton", "yellowstone"],
-    tags: ["First Timer", "Wildlife", "Scenic"],
+    tags: ["Ersttrip", "Wildtiere", "Panorama"],
     characterKeyword: "CALDERA + GRANIT",
     characterKicker: "Rocky Mountains · 7 Tage",
     characterGradient: "linear-gradient(135deg, #1f3a2a 0%, #2a4a30 40%, #c96f3f 100%)",
@@ -2660,13 +2660,13 @@ const LOOPS = [
       { code: "BZN", city: "Bozeman", lng: -111.1602, lat: 45.7775 }
     ],
     days: [
-      { day: 1, title: "Arrive in Jackson", note: "Mormon Row, Schwabacher Landing und erster Blick auf die Teton Range." },
-      { day: 2, title: "Grand Teton depth day", note: "Jenny Lake, Cascade Canyon und ruhige alpine Perspektiven." },
-      { day: 3, title: "Transition into Yellowstone", note: "South Entrance, West Thumb und erste geothermal geprägte Räume." },
-      { day: 4, title: "Geyser basin day", note: "Old Faithful und Grand Prismatic als ikonischer Yellowstone-Kern." },
-      { day: 5, title: "Canyon day", note: "Yellowstone Canyon und die Wasserfall-Viewpoints als dramatische Achse." },
-      { day: 6, title: "Wildlife north", note: "Lamar Valley und Mammoth mit mehr Weite und weniger Dichte." },
-      { day: 7, title: "Return south", note: "Loop closure mit optionalem letzten Teton-Licht am Abend." }
+      { day: 1, title: "Ankunft in Jackson", note: "Mormon Row, Schwabacher Landing und erster Blick auf die Teton Range." },
+      { day: 2, title: "Grand-Teton-Vertiefung", note: "Jenny Lake, Cascade Canyon und ruhige alpine Perspektiven." },
+      { day: 3, title: "Übergang nach Yellowstone", note: "South Entrance, West Thumb und erste geothermal geprägte Räume." },
+      { day: 4, title: "Geysirbecken-Tag", note: "Old Faithful und Grand Prismatic als ikonischer Yellowstone-Kern." },
+      { day: 5, title: "Canyon-Tag", note: "Yellowstone Canyon und die Wasserfall-Viewpoints als dramatische Achse." },
+      { day: 6, title: "Wildtiere im Norden", note: "Lamar Valley und Mammoth mit mehr Weite und weniger Dichte." },
+      { day: 7, title: "Rückweg nach Süden", note: "Sauberer Loop-Abschluss mit optionalem letzten Teton-Licht am Abend." }
     ]
   },
   {
@@ -2705,7 +2705,7 @@ const LOOPS = [
       [-118.25, 34.05]
     ],
     parks: ["redwood", "yosemite", "sequoia", "joshuatree"],
-    tags: ["California", "Roadtrip", "Contrast"],
+    tags: ["Kalifornien", "Roadtrip", "Kontrast"],
     characterKeyword: "COAST + GRANIT + WÜSTE",
     characterKicker: "California · 12 Tage",
     characterGradient: "linear-gradient(135deg, #0f2a3a 0%, #1a3a2a 50%, #2a1f0f 100%)",
@@ -2717,18 +2717,18 @@ const LOOPS = [
       { code: "FAT", city: "Fresno", lng: -119.7181, lat: 36.7762 }
     ],
     days: [
-      { day: 1, title: "San Francisco arrival", note: "Soft start vor der großen Nord-Süd-Schleife." },
-      { day: 2, title: "Drive north", note: "Langer Übergang in die Redwood-Logik an der Küste." },
-      { day: 3, title: "Redwood day", note: "Tall Trees, Fern Canyon und die feuchte Pazifik-Kante." },
-      { day: 4, title: "Interior transfer", note: "Langer Fahrttag zurück Richtung Sierra-Rückgrat." },
-      { day: 5, title: "Yosemite first contact", note: "Tunnel View und Valley-Perspektiven als Auftakt." },
-      { day: 6, title: "Yosemite depth day", note: "Glacier Point, Talboden oder ein längerer Hike." },
-      { day: 7, title: "Move to Sequoia", note: "Südwärts in die Giant-Forest-Welt." },
-      { day: 8, title: "Sequoia depth day", note: "General Sherman und Moro Rock als Kontrast zu Yosemite." },
-      { day: 9, title: "Desert transfer", note: "Bewusster Reset von Bergen zu trockener Offenheit." },
-      { day: 10, title: "Joshua Tree north side", note: "Boulders, Hidden Valley und erste Wüstenrhythmen." },
-      { day: 11, title: "Joshua Tree sunset day", note: "Langsame Wüste, tiefer Sonnenstand und weniger Programm." },
-      { day: 12, title: "Return to Los Angeles", note: "Loop closure zurück in die urbane Kalifornien-Kante." }
+      { day: 1, title: "Ankunft in San Francisco", note: "Sanfter Auftakt vor der großen Nord-Süd-Schleife." },
+      { day: 2, title: "Fahrt nach Norden", note: "Langer Übergang in die Redwood-Logik an der Küste." },
+      { day: 3, title: "Redwood-Tag", note: "Tall Trees, Fern Canyon und die feuchte Pazifik-Kante." },
+      { day: 4, title: "Transfer ins Inland", note: "Langer Fahrttag zurück Richtung Sierra-Rückgrat." },
+      { day: 5, title: "Yosemite erster Kontakt", note: "Tunnel View und Valley-Perspektiven als Auftakt." },
+      { day: 6, title: "Yosemite-Vertiefung", note: "Glacier Point, Talboden oder ein längerer Hike." },
+      { day: 7, title: "Wechsel nach Sequoia", note: "Südwärts in die Giant-Forest-Welt." },
+      { day: 8, title: "Sequoia-Vertiefung", note: "General Sherman und Moro Rock als Kontrast zu Yosemite." },
+      { day: 9, title: "Wüstentransfer", note: "Bewusster Reset von Bergen zu trockener Offenheit." },
+      { day: 10, title: "Joshua Tree Nordseite", note: "Boulders, Hidden Valley und erste Wüstenrhythmen." },
+      { day: 11, title: "Joshua Tree bei Sonnenuntergang", note: "Langsame Wüste, tiefer Sonnenstand und weniger Programm." },
+      { day: 12, title: "Rückkehr nach Los Angeles", note: "Sauberer Loop-Abschluss zurück in die urbane Kalifornien-Kante." }
     ]
   },
   {
@@ -2761,7 +2761,7 @@ const LOOPS = [
       [-118.25, 34.05]
     ],
     parks: ["zion", "grandcanyon", "joshuatree"],
-    tags: ["Shoulder Season", "Desert", "Red Rock"],
+    tags: ["Schultersaison", "Wüste", "Roter Fels"],
     characterKeyword: "RED ROCK + CANYON",
     characterKicker: "Desert Southwest · 9 Tage",
     characterGradient: "linear-gradient(135deg, #3a1a0a 0%, #4a2010 50%, #2a1a0a 100%)",
@@ -2773,15 +2773,15 @@ const LOOPS = [
       { code: "LAX", city: "Los Angeles", lng: -118.4085, lat: 33.9425 }
     ],
     days: [
-      { day: 1, title: "Las Vegas arrival", note: "Schneller Gateway-Start Richtung Canyon Country." },
-      { day: 2, title: "Zion first day", note: "Valley floor und kontrollierter Einstieg in die Canyonräume." },
-      { day: 3, title: "Zion depth day", note: "Narrows oder Angels Landing, je nach Permit und Saison." },
-      { day: 4, title: "Transfer east", note: "Brückentag in Richtung Grand Canyon." },
-      { day: 5, title: "Grand Canyon core", note: "South Rim als Maßstabswechsel und layered geology." },
-      { day: 6, title: "Second canyon day", note: "Sunrise, Sunset und kürzere Rim-Bewegung statt Overload." },
-      { day: 7, title: "Long desert transfer", note: "Langer Wechsel in Richtung Joshua Tree." },
-      { day: 8, title: "Joshua Tree day", note: "Yucca, Monzogranit und trockenes Licht als Schlussakkord." },
-      { day: 9, title: "Return west", note: "Abschluss zurück Richtung L.A. oder Las Vegas." }
+      { day: 1, title: "Ankunft in Las Vegas", note: "Schneller Auftakt Richtung Canyon-Landschaften." },
+      { day: 2, title: "Erster Zion-Tag", note: "Talboden und kontrollierter Einstieg in die Canyonräume." },
+      { day: 3, title: "Zion-Vertiefung", note: "Narrows oder Angels Landing, je nach Permit und Saison." },
+      { day: 4, title: "Transfer nach Osten", note: "Brückentag in Richtung Grand Canyon." },
+      { day: 5, title: "Grand-Canyon-Kern", note: "South Rim als Maßstabswechsel und geschichtete Geologie." },
+      { day: 6, title: "Zweiter Canyon-Tag", note: "Sunrise, Sunset und kürzere Rim-Bewegung statt Overload." },
+      { day: 7, title: "Langer Wüstentransfer", note: "Langer Wechsel in Richtung Joshua Tree." },
+      { day: 8, title: "Joshua-Tree-Tag", note: "Yucca, Monzogranit und trockenes Licht als Schlussakkord." },
+      { day: 9, title: "Rückweg nach Westen", note: "Abschluss zurück Richtung L.A. oder Las Vegas." }
     ]
   },
   {
@@ -2816,7 +2816,7 @@ const LOOPS = [
       [-122.3321, 47.6062]
     ],
     parks: ["olympic", "rainier", "northcascades"],
-    tags: ["Pacific Northwest", "Scenic", "Cool Climate"],
+    tags: ["Pazifischer Nordwesten", "Panorama", "Kühles Klima"],
     characterKeyword: "COAST + VOLCANO + ALPINE",
     characterKicker: "Washington State · 8 Tage",
     characterGradient: "linear-gradient(135deg, #11323a 0%, #1a4638 45%, #5b6870 100%)",
@@ -2828,19 +2828,19 @@ const LOOPS = [
       { code: "PAE", city: "Everett Paine Field", lng: -122.2810, lat: 47.9063 }
     ],
     days: [
-      { day: 1, title: "Cross onto the Peninsula", note: "Arrival in Seattle or Everett and deliberate move west to Port Angeles." },
-      { day: 2, title: "Olympic north side", note: "Hurricane Ridge, lake corridors and the clearer alpine face of Olympic." },
-      { day: 3, title: "Rainforest + coast", note: "Forks, Hoh und Kalaloch als wetterreiche Westseite der Halbinsel." },
-      { day: 4, title: "Turn inland to Rainier", note: "Der große Maßstabswechsel von Regenwald zu Vulkanlogik." },
-      { day: 5, title: "Rainier depth day", note: "Paradise und subalpine Perspektiven ohne Hotelwechsel." },
-      { day: 6, title: "Long move north", note: "Transfer durch den Kaskadenraum bis in die trockene Ostseite." },
-      { day: 7, title: "North Cascades core", note: "Washington Pass, Diablo Lake und die schärfste alpine Linie des Loops." },
-      { day: 8, title: "Return to the Sound", note: "Saubere Rückkehr Richtung Seattle oder alternativer Flughafenausstieg." }
+      { day: 1, title: "Auf die Halbinsel wechseln", note: "Ankunft in Seattle oder Everett und bewusster Auftakt nach Westen bis Port Angeles." },
+      { day: 2, title: "Olympic Nordseite", note: "Hurricane Ridge, Seenkorridore und die klarere alpine Seite von Olympic." },
+      { day: 3, title: "Regenwald + Küste", note: "Forks, Hoh und Kalaloch als wetterreiche Westseite der Halbinsel." },
+      { day: 4, title: "Nach Rainier ins Inland", note: "Der große Maßstabswechsel von Regenwald zu Vulkanlogik." },
+      { day: 5, title: "Rainier-Vertiefung", note: "Paradise und subalpine Perspektiven ohne Hotelwechsel." },
+      { day: 6, title: "Langer Zug nach Norden", note: "Transfer durch den Kaskadenraum bis in die trockene Ostseite." },
+      { day: 7, title: "North-Cascades-Kern", note: "Washington Pass, Diablo Lake und die schärfste alpine Linie des Loops." },
+      { day: 8, title: "Zurück an den Sound", note: "Saubere Rückkehr Richtung Seattle oder alternativer Flughafenausstieg." }
     ]
   }
 ];
 
-const REGIONS = ["Alle", "West Coast", "Rocky Mountains"];
+const REGIONS = ["Alle", "Westküste", "Rocky Mountains"];
 const HIGHLIGHT_STATES = new Set(PARKS.map(p => p.stateCode));
 
 /* =============================================================
@@ -3084,15 +3084,15 @@ function formatDriveInfo(km, hours) {
 }
 
 function formatLegDayRange(leg) {
-  return leg.dayStart === leg.dayEnd ? `Day ${leg.dayStart}` : `Days ${leg.dayStart}-${leg.dayEnd}`;
+  return leg.dayStart === leg.dayEnd ? `Tag ${leg.dayStart}` : `Tage ${leg.dayStart}-${leg.dayEnd}`;
 }
 
 function getLegTypeLabel(type) {
   return {
-    "airport-prefix": "Arrival",
-    "drive": "Drive",
-    "park-day": "Park Day",
-    "return": "Return"
+    "airport-prefix": "Ankunft",
+    "drive": "Fahrt",
+    "park-day": "Parktag",
+    "return": "Rückreise"
   }[type] || "Leg";
 }
 
@@ -3106,8 +3106,8 @@ function getLegIcon(leg) {
 }
 
 function getLegConfidenceLabel(loop, leg) {
-  if (leg.type === "park-day") return "Park access day";
-  return getLoopStatus(loop) === "official" ? "Verified drive" : "Estimated drive";
+  if (leg.type === "park-day") return "Parkzugangstag";
+  return getLoopStatus(loop) === "official" ? "Verifizierte Fahrt" : "Geschätzte Fahrt";
 }
 
 function buildGoogleMapsUrl(navState) {
@@ -3149,41 +3149,41 @@ function getLegToneClass(leg) {
 }
 
 function getLegExecutionLabel(leg) {
-  if (leg.type === "airport-prefix") return "Arrival transfer";
-  if (leg.type === "return") return "Departure leg";
-  if (leg.type === "park-day") return "Park access day";
-  return isLongTransferLeg(leg) ? "Long transfer day" : "Move-base day";
+  if (leg.type === "airport-prefix") return "Ankunftstransfer";
+  if (leg.type === "return") return "Abreisetag";
+  if (leg.type === "park-day") return "Parkzugangstag";
+  return isLongTransferLeg(leg) ? "Langer Transfertag" : "Basiswechsel";
 }
 
 function getLegWarningLabel(leg) {
-  if (isLongTransferLeg(leg)) return "Long transfer";
-  if (leg.type === "airport-prefix") return "Arrival only";
-  if (leg.type === "return") return "Departure only";
+  if (isLongTransferLeg(leg)) return "Langer Transfer";
+  if (leg.type === "airport-prefix") return "Nur Ankunft";
+  if (leg.type === "return") return "Nur Abreise";
   return "";
 }
 
 function getLegBaseSummary(leg) {
   if (!leg?.overnightBase || !Number.isFinite(leg.nights) || leg.nights <= 0) {
     return {
-      label: leg?.type === "return" ? "Departure" : "Overnight",
-      value: leg?.type === "return" ? "No overnight. Exit the loop after this leg." : "No overnight planned after this leg.",
+      label: leg?.type === "return" ? "Abreise" : "Übernachtung",
+      value: leg?.type === "return" ? "Keine Übernachtung. Nach diesem Leg endet die Route." : "Nach diesem Leg ist keine Übernachtung vorgesehen.",
       isDeparture: true
     };
   }
 
   return {
-    label: "Tonight",
-    value: `Sleep in <strong>${leg.overnightBase}</strong> · ${leg.nights} night${leg.nights === 1 ? "" : "s"}`,
+    label: "Heute Nacht",
+    value: `Übernachtung in <strong>${leg.overnightBase}</strong> · ${leg.nights} Nacht${leg.nights === 1 ? "" : "e"}`,
     isDeparture: false
   };
 }
 
 function getLegDisplayNote(leg) {
   if (leg?.note) return leg.note;
-  if (leg?.type === "park-day") return "Keep the base stable and use the day inside the park rather than moving hotels.";
-  if (leg?.type === "return") return "Departure leg. Keep timing conservative and leave early if needed.";
-  if (leg?.type === "airport-prefix") return "Arrival transfer first. Do not count on meaningful park time after the flight.";
-  return "Use this as a structural move between bases rather than as a full sightseeing day.";
+  if (leg?.type === "park-day") return "Basis stabil halten und den Tag im Park nutzen, statt noch einmal das Hotel zu wechseln.";
+  if (leg?.type === "return") return "Abreiseleg. Plane konservativ und fahre lieber etwas früher los.";
+  if (leg?.type === "airport-prefix") return "Erst Ankunftstransfer. Rechne nach dem Flug nicht mehr mit voller Parkzeit.";
+  return "Nutze dieses Leg als strukturellen Wechsel zwischen Basen, nicht als vollwertigen Sightseeing-Tag.";
 }
 
 function getTripExportStopKey(stop) {
@@ -3299,7 +3299,7 @@ function buildAppleMapsStopsUrl(stops) {
 function getTripExportData(trip) {
   const rawStops = buildTripExportStops(trip);
   if (rawStops.length < 2) {
-    return { googleLinks: [], appleUrl: "#", note: "Not enough stops to export.", segmented: false, appleSimplified: false };
+    return { googleLinks: [], appleUrl: "#", note: "Zu wenige Stopps für einen Export.", segmented: false, appleSimplified: false };
   }
 
   // Google Maps: segment if >10 stops to stay within URL limits
@@ -3307,7 +3307,7 @@ function getTripExportData(trip) {
   const googleLinks = [];
   if (rawStops.length <= GOOGLE_MAX) {
     const url = buildGoogleMapsStopsUrl(rawStops);
-    if (url !== "#") googleLinks.push({ url, label: "Full trip · Google Maps" });
+    if (url !== "#") googleLinks.push({ url, label: "Gesamte Route · Google Maps" });
   } else {
     const segments = segmentStopsForExport(rawStops, GOOGLE_MAX - 1);
     segments.forEach((seg, idx) => {
@@ -3315,7 +3315,7 @@ function getTripExportData(trip) {
       if (url !== "#") {
         googleLinks.push({
           url,
-          label: `Segment ${idx + 1} of ${segments.length} · Google Maps`
+          label: `Segment ${idx + 1} von ${segments.length} · Google Maps`
         });
       }
     });
@@ -3331,13 +3331,13 @@ function getTripExportData(trip) {
 
   const notes = [];
   if (googleLinks.length > 1) {
-    notes.push(`Route split into ${googleLinks.length} segments for Google Maps (${GOOGLE_MAX}-stop limit per link).`);
+    notes.push(`Die Route wurde für Google Maps in ${googleLinks.length} Segmente geteilt (${GOOGLE_MAX} Stopps pro Link).`);
   }
   if (appleSimplified) {
-    notes.push("Apple Maps shows start → end only (waypoint support is limited).");
+    notes.push("Apple Maps zeigt nur Start → Ziel, weil die Waypoint-Unterstützung begrenzt ist.");
   }
   if (!notes.length) {
-    notes.push("Export uses the current trip structure: airport, overnight bases, and park anchors.");
+    notes.push("Der Export nutzt die aktuelle Reisestruktur: Flughafen, Übernachtungsbasen und Parkanker.");
   }
 
   return {
@@ -3378,7 +3378,7 @@ function getTripSnapshot(selectedAirport, resolvedLegs) {
   const totalDriveHours = resolvedLegs.reduce((sum, leg) => sum + (Number.isFinite(leg.driveHours) ? leg.driveHours : 0), 0);
   const overnightBases = new Set(resolvedLegs.filter(leg => leg.overnightBase).map(leg => leg.overnightBase));
   return {
-    selectedAirport: selectedAirport ? `${selectedAirport.code} · ${selectedAirport.city}` : "No airport",
+    selectedAirport: selectedAirport ? `${selectedAirport.code} · ${selectedAirport.city}` : "Kein Flughafen",
     totalNights,
     totalDriveHours: formatDriveHours(Math.round(totalDriveHours * 10) / 10),
     overnightBases: overnightBases.size
@@ -3445,7 +3445,7 @@ function getLegEndpointLabel(loop, endpoint) {
     return endpoint.label || parkById(endpoint.ref)?.name || "";
   }
   if (endpoint.kind === "airport-choice") {
-    return endpoint.label || "Selected airport";
+    return endpoint.label || "Gewählter Flughafen";
   }
   if (endpoint.kind === "airport") {
     const airport = loop?.airportOptions?.find(item => item.code === endpoint.ref);
@@ -3744,7 +3744,7 @@ function syncBuildFabState() {
   }
   const fabLabel = document.getElementById("build-fab-label");
   if (fabLabel) {
-    fabLabel.textContent = buildState.active ? "Building…" : "Build Route";
+    fabLabel.textContent = buildState.active ? "Route wird gebaut…" : "Route bauen";
   }
 }
 
@@ -4062,9 +4062,9 @@ function formatDriveDuration(totalSeconds) {
   if (!Number.isFinite(totalSeconds) || totalSeconds <= 0) return "";
   const hours = Math.floor(totalSeconds / 3600);
   const minutes = Math.round((totalSeconds % 3600) / 60);
-  if (hours < 1) return `${minutes}m`;
-  if (!minutes) return `${hours}h`;
-  return `${hours}h ${minutes}m`;
+  if (hours < 1) return `${minutes} Min`;
+  if (!minutes) return `${hours} Std`;
+  return `${hours} Std ${minutes} Min`;
 }
 
 async function ensureLoopRoute(loop) {
@@ -4331,7 +4331,7 @@ function getTripBaseStops(trip) {
     const last = grouped[grouped.length - 1];
     if (last && last.key === key) {
       last.nights += leg.nights;
-      last.nightsLabel = `${last.nights}n`;
+      last.nightsLabel = `${last.nights}N`;
       return;
     }
 
@@ -4339,7 +4339,7 @@ function getTripBaseStops(trip) {
       key,
       label: endpoint.label,
       nights: leg.nights,
-      nightsLabel: `${leg.nights}n`,
+      nightsLabel: `${leg.nights}N`,
       lng: endpoint.lng,
       lat: endpoint.lat
     });
@@ -4993,32 +4993,32 @@ function renderMapLegend() {
     : `<span class="ln preview"></span>`;
   const selectedAirport = trip.selectedAirport;
   const airportLabel = selectedAirport
-    ? `Airport · ${selectedAirport.code}`
-    : "Airport options";
+    ? `Flughafen · ${selectedAirport.code}`
+    : "Flughafenoptionen";
 
   const connectorRow = connectorCount
     ? `<div class="map-legend-row">
         <span class="map-legend-swatch"><span class="ln transfer"></span></span>
-        <span>Airport transfer connector${connectorCount > 1 ? "s" : ""}</span>
+        <span>Flughafentransfer${connectorCount > 1 ? "e" : ""}</span>
       </div>`
     : "";
 
   const baseRow = baseCount
     ? `<div class="map-legend-row">
         <span class="map-legend-swatch"><span class="dot base"></span></span>
-        <span>Overnight bases · nights</span>
+        <span>Übernachtungsbasen · Nächte</span>
       </div>`
     : "";
 
   legend.innerHTML = `
-    <div class="map-legend-title">Route Guide</div>
+    <div class="map-legend-title">Routenhilfe</div>
     <div class="map-legend-row">
       <span class="map-legend-swatch">${routeLine}</span>
-      <span>${trip.routeStatus === "official" ? "Official road line" : "Preview path"}</span>
+      <span>${trip.routeStatus === "official" ? "Offizielle Straßenlinie" : "Vorschaupfad"}</span>
     </div>
     <div class="map-legend-row">
       <span class="map-legend-swatch"><span class="dot"></span></span>
-      <span>① Active park order</span>
+      <span>① Aktive Parkreihenfolge</span>
     </div>
     ${connectorRow}
     ${baseRow}
@@ -5038,15 +5038,15 @@ function renderRouteDataStatus() {
   const officialCount = LOOPS.filter(loop => getLoopStatus(loop) === "official").length;
   const previewCount = LOOPS.length - officialCount;
   const sourceLabel = routeRuntimeStatus.manifestSource === "manifest.json"
-    ? "manifest"
+    ? "Manifest"
     : routeRuntimeStatus.seedSource === "loops.json"
-      ? "seed json"
-      : "inline";
+      ? "Seed-JSON"
+      : "Inline";
 
   statusEl.className = `map-data-status ${officialCount ? "has-official" : "seed-only"}`;
   statusEl.innerHTML = `
     <span class="map-data-status-pill">${sourceLabel}</span>
-    <span>${officialCount} official · ${previewCount} preview</span>
+    <span>${officialCount} offiziell · ${previewCount} Vorschau</span>
   `;
 }
 
@@ -5060,6 +5060,7 @@ function renderParkImg(park, loading, hideContainer, cssClass, altOverride) {
   const alt = altOverride !== undefined ? altOverride : (park.name || "");
   const cls = cssClass ? ` class="${cssClass}"` : "";
   const loadAttr = loading ? ` loading="${loading}"` : "";
+  const decodeAttr = ` decoding="async"`;
   const fallback = park.imgFallback || "";
   // Use data-fb-tried flag to avoid browser URL normalization issues with src comparison
   let onError;
@@ -5076,7 +5077,7 @@ function renderParkImg(park, loading, hideContainer, cssClass, altOverride) {
       onError = `this.style.display='none';`;
     }
   }
-  return `<img src="${park.img}" alt="${alt}"${cls}${loadAttr} onerror="${onError}">`;
+  return `<img src="${park.img}" alt="${alt}"${cls}${loadAttr}${decodeAttr} onerror="${onError}">`;
 }
 
 function renderDetail() {
@@ -5093,13 +5094,13 @@ function renderDetail() {
     slot.innerHTML = `
     <div class="slideover-panel fade-in">
       <div class="detail-img">
-        <img src="${p.img}" alt="${p.name}" onerror="${detailImgError}">
+        <img src="${p.img}" alt="${p.name}" decoding="async" onerror="${detailImgError}">
         ${selectedOnActiveLoop ? `<button class="detail-context-back" onclick="returnToLoop()" aria-label="Zurück zur Route">← ${activeLoop.title}</button>` : ""}
         <button class="detail-close" onclick="closeDetail()" aria-label="Schließen">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
         <div class="detail-header">
-          <div class="detail-region">${selectedOnActiveLoop ? `${activeLoop.title} · stop on route` : `${p.region} · ${p.type}`}</div>
+          <div class="detail-region">${selectedOnActiveLoop ? `${activeLoop.title} · Stopp auf der Route` : `${p.region} · ${p.type}`}</div>
           <div class="detail-name">${p.name}</div>
           <div class="detail-state">${p.state} · ${p.stateCode}</div>
         </div>
@@ -5138,15 +5139,15 @@ function renderDetail() {
     const verifiedKm = routeMeta?.distanceM ? Math.round(routeMeta.distanceM / 1000) : null;
     const verifiedDuration = routeMeta?.durationS ? formatDriveDuration(routeMeta.durationS) : "";
     const confidenceMeta = [
-      verifiedKm ? `${verifiedKm.toLocaleString('de-DE')} km road line` : "",
-      verifiedDuration ? `${verifiedDuration} drive time` : ""
+      verifiedKm ? `${verifiedKm.toLocaleString('de-DE')} km Straßenlinie` : "",
+      verifiedDuration ? `${verifiedDuration} Fahrzeit` : ""
     ].filter(Boolean).join(" · ");
 
     const confidenceBlock = isOfficial
       ? `<div class="route-confidence official">
           <div class="route-confidence-icon">✓</div>
           <div class="route-confidence-body">
-            <div class="route-confidence-label">Official Route</div>
+            <div class="route-confidence-label">Offizielle Route</div>
             <div class="route-confidence-text"><strong>Gefahrene Straßenlinie, Distanz und Dauer verifiziert.</strong> Diese Route basiert auf echten Navigationsdaten.</div>
             ${confidenceMeta ? `<div class="route-confidence-meta">${confidenceMeta}</div>` : ""}
           </div>
@@ -5154,8 +5155,8 @@ function renderDetail() {
       : `<div class="route-confidence preview">
           <div class="route-confidence-icon">~</div>
           <div class="route-confidence-body">
-            <div class="route-confidence-label">Preview Path</div>
-            <div class="route-confidence-text"><strong>Sketch, keine gefahrene Route.</strong> Parks-Reihenfolge, Tage und Charakter stimmen. Exakte Straßenführung folgt, sobald die offiziellen Route-Files geladen sind.</div>
+            <div class="route-confidence-label">Vorschaupfad</div>
+            <div class="route-confidence-text"><strong>Skizze, keine gefahrene Route.</strong> Parks-Reihenfolge, Tage und Charakter stimmen. Exakte Straßenführung folgt, sobald die offiziellen Route-Files geladen sind.</div>
           </div>
         </div>`;
 
@@ -5176,10 +5177,10 @@ function renderDetail() {
         <option value="${apt.code}"${trip.selectedAirport?.code === apt.code ? " selected" : ""}>${apt.code} · ${apt.city}</option>
       `).join("");
       const snapshotItems = [
-        { label: "Selected airport", value: tripSnapshot.selectedAirport },
-        { label: "Total nights", value: String(tripSnapshot.totalNights) },
-        { label: "Total drive", value: tripSnapshot.totalDriveHours || "—" },
-        { label: "Overnight bases", value: String(tripSnapshot.overnightBases) }
+        { label: "Gewählter Flughafen", value: tripSnapshot.selectedAirport },
+        { label: "Nächte gesamt", value: String(tripSnapshot.totalNights) },
+        { label: "Fahrzeit gesamt", value: tripSnapshot.totalDriveHours || "—" },
+        { label: "Übernachtungsbasen", value: String(tripSnapshot.overnightBases) }
       ].map(item => `
         <div class="trip-snapshot-item">
           <span class="trip-snapshot-label">${item.label}</span>
@@ -5189,14 +5190,13 @@ function renderDetail() {
       const stayPlanTrack = stayPlan.map(stop => `
         <div class="stay-plan-stop">
           <span>${stop.base}</span>
-          <strong>${stop.nights}n</strong>
+          <strong>${stop.nights}N</strong>
         </div>`).join("");
 
       const legCards = resolvedLegs.map(leg => {
         const removableStopId = leg.toResolved?.kind !== "airport" && leg.toResolved?.ref ? leg.toResolved.ref : "";
         const canRemove = Boolean(removableStopId) && leg.type === "park-day";
         const legToneClass = getLegToneClass(leg);
-        const legWarning = getLegWarningLabel(leg);
         const baseSummary = getLegBaseSummary(leg);
         const isLong = isLongTransferLeg(leg);
 
@@ -5210,11 +5210,11 @@ function renderDetail() {
         const overnightHtml = baseSummary.isDeparture
           ? `<div class="trip-leg-base no-overnight">
               <span class="trip-leg-base-label">${baseSummary.label}</span>
-              <span class="trip-leg-base-value">${leg.type === "return" ? "Exit the loop — no overnight." : "No overnight after this leg."}</span>
+              <span class="trip-leg-base-value">${leg.type === "return" ? "Route endet hier — keine Übernachtung." : "Nach diesem Leg keine Übernachtung."}</span>
              </div>`
           : `<div class="trip-leg-base">
-              <span class="trip-leg-base-label">🌙 Sleep</span>
-              <span class="trip-leg-base-value"><strong>${leg.overnightBase}</strong> · ${leg.nights} night${leg.nights === 1 ? "" : "s"}</span>
+              <span class="trip-leg-base-label">🌙 Schlaf</span>
+              <span class="trip-leg-base-value"><strong>${leg.overnightBase}</strong> · ${leg.nights} Nacht${leg.nights === 1 ? "" : "e"}</span>
              </div>`;
 
         const icon = getLegIcon(leg);
@@ -5224,12 +5224,12 @@ function renderDetail() {
           <div class="trip-leg-top">
             <div class="trip-leg-day">${leg.dayLabel}</div>
             <div class="trip-leg-tools">
-              <div class="trip-leg-type ${legToneClass}">${icon ? icon + " " : ""}${getLegTypeLabel(leg.type)}${isLong ? " · Long" : ""}</div>
-              ${canRemove ? `<button class="trip-leg-remove" data-stop-id="${removableStopId}" type="button" aria-label="Stop entfernen">Remove</button>` : ""}
+              <div class="trip-leg-type ${legToneClass}">${icon ? icon + " " : ""}${getLegTypeLabel(leg.type)}${isLong ? " · Lang" : ""}</div>
+              ${canRemove ? `<button class="trip-leg-remove" data-stop-id="${removableStopId}" type="button" aria-label="Stopp entfernen">Entfernen</button>` : ""}
             </div>
           </div>
-          <div class="trip-leg-route"><strong>${leg.fromResolved?.label || "Start"}</strong> → ${leg.toResolved?.label || "Destination"}</div>
-          ${leg.driveInfo ? `<div class="trip-leg-meta"><span>${leg.driveInfo}</span>${isLong ? `<span class="trip-leg-warning">⚠️ Long transfer — plan around arrival</span>` : ""}</div>` : ""}
+          <div class="trip-leg-route"><strong>${leg.fromResolved?.label || "Start"}</strong> → ${leg.toResolved?.label || "Ziel"}</div>
+          ${leg.driveInfo ? `<div class="trip-leg-meta"><span>${leg.driveInfo}</span>${isLong ? `<span class="trip-leg-warning">⚠️ Langer Transfer — Ankunftszeit mitdenken</span>` : ""}</div>` : ""}
           ${overnightHtml}
           <div class="trip-leg-note">${getLegDisplayNote(leg)}</div>
           <div class="trip-leg-actions">
@@ -5245,7 +5245,7 @@ function renderDetail() {
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
           </button>
           <div class="route-brief-hero">
-            <div class="route-brief-kicker">Curated Loop · ${loop.parks.length} Parks</div>
+            <div class="route-brief-kicker">Kuratierte Route · ${loop.parks.length} Parks</div>
             <h2 class="route-brief-title">${loop.title}</h2>
             <p class="route-brief-subtitle">${loop.subtitle}</p>
             <div class="route-brief-kpis">
@@ -5257,49 +5257,49 @@ function renderDetail() {
           ${confidenceBlock}
           <div class="route-brief-body">
             <div class="route-brief-character">
-              <div class="route-brief-character-label">Route Character</div>
+              <div class="route-brief-character-label">Routencharakter</div>
               <p class="route-brief-rationale">${loop.rationale}</p>
               ${loop.quip ? `<p class="route-brief-quip">„${loop.quip}"</p>` : ""}
             </div>
             <div class="route-airport-choice">
-              <div class="route-airport-label">Start Airport — Einstieg in die Route</div>
+              <div class="route-airport-label">Startflughafen — Einstieg in die Route</div>
               <div class="airport-options">${airportCards}</div>
             </div>
             <div class="stay-plan">
-              <div class="route-brief-col-label">Trip controls</div>
+              <div class="route-brief-col-label">Reisesteuerung</div>
               <div class="trip-controls">
-                <select class="trip-control-select" id="trip-airport-control" aria-label="Airport auswählen">
+                <select class="trip-control-select" id="trip-airport-control" aria-label="Flughafen auswählen">
                   ${airportControlOptions}
                 </select>
-                <button class="trip-control-btn" id="trip-reverse-control" type="button">Reverse</button>
-                <button class="trip-control-btn" id="trip-days-minus" type="button" aria-label="Trip verkürzen">−</button>
-                <span class="trip-control-days">${trip.currentDays} days</span>
-                <button class="trip-control-btn" id="trip-days-plus" type="button" aria-label="Trip verlängern">+</button>
+                <button class="trip-control-btn" id="trip-reverse-control" type="button">Umkehren</button>
+                <button class="trip-control-btn" id="trip-days-minus" type="button" aria-label="Reise verkürzen">−</button>
+                <span class="trip-control-days">${trip.currentDays} Tage</span>
+                <button class="trip-control-btn" id="trip-days-plus" type="button" aria-label="Reise verlängern">+</button>
                 <div class="trip-control-actions">
-                  <button class="trip-control-btn" type="button" onclick="shareCurrentRoute(this)">Share route</button>
+                  <button class="trip-control-btn" type="button" onclick="shareCurrentRoute(this)">Route teilen</button>
                   <div class="trip-export-info${tripExport.segmented ? " segmented" : ""}">
                     ${tripExport.segmented
-                      ? `Open in order · ${tripExport.googleLinks.length} segments`
-                      : tripExport.googleLinks.length ? "Open full route" : ""}
+                      ? `In Reihenfolge öffnen · ${tripExport.googleLinks.length} Segmente`
+                      : tripExport.googleLinks.length ? "Komplette Route öffnen" : ""}
                   </div>
                   ${tripExport.googleLinks.map(link =>
                     `<a class="trip-control-link" href="${link.url}" target="_blank" rel="noreferrer">${link.label}</a>`
                   ).join("")}
-                  ${tripExport.appleUrl !== "#" ? `<a class="trip-control-link" href="${tripExport.appleUrl}" target="_blank" rel="noreferrer">Apple Maps${tripExport.appleSimplified ? " (start → end)" : ""}</a>` : ""}
+                  ${tripExport.appleUrl !== "#" ? `<a class="trip-control-link" href="${tripExport.appleUrl}" target="_blank" rel="noreferrer">Apple Maps${tripExport.appleSimplified ? " (Start → Ziel)" : ""}</a>` : ""}
                 </div>
               </div>
               <div class="trip-export-note">${tripExport.note}</div>
             </div>
-            <div class="route-brief-col-label">Trip snapshot</div>
+            <div class="route-brief-col-label">Reiseüberblick</div>
             <div class="trip-snapshot">${snapshotItems}</div>
             <div class="stay-plan">
-              <div class="route-brief-col-label">Stay plan</div>
+              <div class="route-brief-col-label">Übernachtungsplan</div>
               ${stayPlan.length
                 ? `<div class="stay-plan-track">${stayPlanTrack}</div>`
-                : `<div class="trip-leg-note">No overnight bases are defined for this route yet.</div>`}
+                : `<div class="trip-leg-note">Für diese Route sind noch keine Übernachtungsbasen definiert.</div>`}
             </div>
             <div>
-              <div class="route-brief-col-label">Trip legs</div>
+              <div class="route-brief-col-label">Etappen</div>
               <div class="trip-legs">${legCards}</div>
             </div>
           </div>
@@ -5405,7 +5405,7 @@ function renderDetail() {
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
         <div class="route-brief-hero">
-          <div class="route-brief-kicker">Curated Loop · ${loop.parks.length} Parks</div>
+            <div class="route-brief-kicker">Kuratierte Route · ${loop.parks.length} Parks</div>
           <h2 class="route-brief-title">${loop.title}</h2>
           <p class="route-brief-subtitle">${loop.subtitle}</p>
           <div class="route-brief-kpis">
@@ -5417,15 +5417,15 @@ function renderDetail() {
         ${confidenceBlock}
         <div class="route-brief-body">
           <div class="route-brief-character">
-            <div class="route-brief-character-label">Route Character</div>
+            <div class="route-brief-character-label">Routencharakter</div>
             <p class="route-brief-rationale">${loop.rationale}</p>
             ${loop.quip ? `<p class="route-brief-quip">„${loop.quip}"</p>` : ""}
           </div>
-          <div class="route-airport-choice">
-            <div class="route-airport-label">Start Airport — Einstieg in die Route</div>
-            <div class="airport-options">${airportCards}</div>
-            <div class="trip-control-actions standalone">
-              <button class="trip-control-btn" type="button" onclick="shareCurrentRoute(this)">Share route</button>
+            <div class="route-airport-choice">
+            <div class="route-airport-label">Startflughafen — Einstieg in die Route</div>
+              <div class="airport-options">${airportCards}</div>
+              <div class="trip-control-actions standalone">
+              <button class="trip-control-btn" type="button" onclick="shareCurrentRoute(this)">Route teilen</button>
             </div>
           </div>
           <div class="route-brief-grid">
@@ -5434,7 +5434,7 @@ function renderDetail() {
               <ol class="itinerary-list">${parksCol}</ol>
             </div>
             <div>
-              <div class="route-brief-col-label">Day-by-Day</div>
+              <div class="route-brief-col-label">Tag für Tag</div>
               <ol class="itinerary-list">${daysCol}</ol>
             </div>
           </div>
@@ -5456,12 +5456,12 @@ function renderDetail() {
     slot.innerHTML = `
       <div class="slideover-panel">
         <div class="slideover-empty">
-          <h3>Explore mode</h3>
-          <p>Wähle eine kuratierte Route aus dem neuen Loop-Hub oder klicke einen Park direkt auf der Karte, um das neue route-first Fundament zu testen.</p>
+          <h3>Entdecken-Modus</h3>
+          <p>Wähle eine kuratierte Route aus dem neuen Loop-Hub oder klicke einen Park direkt auf der Karte, um das neue routenorientierte Fundament zu testen.</p>
           <ul>
-            <li>Route-Mode ersetzt die alte Distanzmatrix.</li>
-            <li>Park-Mode bleibt als zweiter Fokus bestehen.</li>
-            <li>Build-Mode folgt erst nach dem stabilen Fundament.</li>
+            <li>Route-Modus ersetzt die alte Distanzmatrix.</li>
+            <li>Park-Modus bleibt als zweiter Fokus bestehen.</li>
+            <li>Routenbau folgt erst nach dem stabilen Fundament.</li>
           </ul>
         </div>
       </div>`;
@@ -5493,8 +5493,8 @@ function closeDetail() {
 function statusPill(loop) {
   const official = getLoopStatus(loop) === "official";
   return official
-    ? `<span class="status-pill official" title="Official Mapbox road geometry loaded">Official Route</span>`
-    : `<span class="status-pill preview" title="Preview path — not the actual driven road line">Preview Path</span>`;
+    ? `<span class="status-pill official" title="Offizielle Straßengeometrie geladen">Offizielle Route</span>`
+    : `<span class="status-pill preview" title="Vorschaupfad — nicht die tatsächlich gefahrene Straßenlinie">Vorschaupfad</span>`;
 }
 
 function renderLoopHub() {
@@ -5537,8 +5537,8 @@ function renderLoopHub() {
           ${loop.tags.slice(1).map(tag => `<span class="loop-tag">${tag}</span>`).join("")}
         </div>
         <div class="loop-stats">
-          <div><span class="loop-stat-label">Days</span><span class="loop-stat-value">${loop.durationDays}</span></div>
-          <div><span class="loop-stat-label">Distance</span><span class="loop-stat-value">${loop.distanceKm.toLocaleString('de-DE')} km</span></div>
+          <div><span class="loop-stat-label">Tage</span><span class="loop-stat-value">${loop.durationDays}</span></div>
+          <div><span class="loop-stat-label">Distanz</span><span class="loop-stat-value">${loop.distanceKm.toLocaleString('de-DE')} km</span></div>
           <div><span class="loop-stat-label">Parks</span><span class="loop-stat-value">${loop.parks.length}</span></div>
         </div>
         <div class="season-strip">${seasonMonths}</div>
@@ -5837,7 +5837,7 @@ function getBuildExportData() {
     const segments = segmentStopsForExport(stopObjs, GOOGLE_MAX - 1);
     segments.forEach((seg, idx) => {
       const url = buildGoogleMapsStopsUrl(seg);
-      if (url !== "#") googleLinks.push({ url, label: `Segment ${idx + 1}/${segments.length} · Google` });
+      if (url !== "#") googleLinks.push({ url, label: `Segment ${idx + 1}/${segments.length} · Google Maps` });
     });
   }
 
@@ -5921,23 +5921,23 @@ function getBuildRecommendedDays(metrics) {
   if (metrics.longestLegHours >= 7.5 || metrics.hours >= 24 || (metrics.regionCount > 1 && metrics.hours >= 20)) {
     return {
       tone: "danger",
-      label: "Too compressed for a comfortable road trip",
-      shortLabel: "Too compressed"
+      label: "Zu komprimiert für einen komfortablen Roadtrip",
+      shortLabel: "Zu komprimiert"
     };
   }
 
   if (metrics.longestLegHours >= 6 || metrics.hours >= 17 || (metrics.regionCount > 1 && metrics.hours >= 15)) {
     return {
       tone: "warning",
-      label: `Better as ${minimumDays + 1}+ days`,
-      shortLabel: `${minimumDays + 1}+ days`
+      label: `Besser als ${minimumDays + 1}+ Tage`,
+      shortLabel: `${minimumDays + 1}+ Tage`
     };
   }
 
   return {
     tone: "ok",
-    label: `Minimum ${minimumDays}-${minimumDays + 1} days`,
-    shortLabel: `${minimumDays}-${minimumDays + 1} days`
+    label: `Mindestens ${minimumDays}-${minimumDays + 1} Tage`,
+    shortLabel: `${minimumDays}-${minimumDays + 1} Tage`
   };
 }
 
@@ -6018,40 +6018,40 @@ function getBuildQualityAssessment() {
   if (buildState.routeError) {
     warnings.push({
       tone: "danger",
-      title: "Route is rough",
-      text: "OSRM routing is unavailable right now, so the map is showing a straight-line estimate rather than a real road route."
+      title: "Route ist nur grob",
+      text: "OSRM ist gerade nicht verfügbar. Die Karte zeigt deshalb eine Luftlinien-Schätzung statt einer echten Straßenroute."
     });
   }
 
   if (metrics.longestLeg && metrics.longestLegHours >= 5.5) {
     warnings.push({
       tone: metrics.longestLegHours >= 7 ? "danger" : "warning",
-      title: "Very long leg",
-      text: `${metrics.longestLeg.from.name} → ${metrics.longestLeg.to.name} is about ${formatDriveHours(metrics.longestLegHours)} of driving.`
+      title: "Sehr langes Leg",
+      text: `${metrics.longestLeg.from.name} → ${metrics.longestLeg.to.name} bedeutet ungefähr ${formatDriveHours(metrics.longestLegHours)} reine Fahrzeit.`
     });
   }
 
   if (metrics.hours >= 14) {
     warnings.push({
       tone: metrics.hours >= 20 ? "danger" : "warning",
-      title: "Heavy total drive load",
-      text: `This build is carrying about ${formatDriveHours(metrics.hours)} of driving before park time, meals, and arrival friction.`
+      title: "Hohe Gesamtfahrzeit",
+      text: `Diese Route trägt ungefähr ${formatDriveHours(metrics.hours)} Fahrzeit, noch bevor Parkzeit, Essen und Ankunftsreibung dazukommen.`
     });
   }
 
   if (suggestion) {
     warnings.push({
       tone: "warning",
-      title: "Current order is geographically rough",
-      text: `A tighter order could trim about ${Math.round(suggestion.deltaKm).toLocaleString("de-DE")} km and reduce backtracking.`
+      title: "Aktuelle Reihenfolge ist geografisch rau",
+      text: `Eine straffere Reihenfolge könnte ungefähr ${Math.round(suggestion.deltaKm).toLocaleString("de-DE")} km sparen und Rücksprünge reduzieren.`
     });
   }
 
   if (metrics.regionCount > 1 && (metrics.hours >= 16 || metrics.stateCount >= 4 || metrics.crossRegionLegs >= 2)) {
     warnings.push({
       tone: "danger",
-      title: "Build spans too much ground",
-      text: "This jumps across major regions and reads more like a wish list than a comfortable single road trip."
+      title: "Route spannt zu viel Raum",
+      text: "Diese Kombination springt über große Regionen und liest sich eher wie eine Wunschliste als wie ein komfortabler einzelner Roadtrip."
     });
   }
 
@@ -6062,8 +6062,8 @@ function getBuildQualityAssessment() {
   }, null);
 
   const summaryTone = strongest?.tone || recommendation.tone || "ok";
-  const summaryTitle = strongest?.title || "Route looks workable";
-  const summaryText = strongest?.text || `This order reads plausible as a custom road trip. ${recommendation.label}.`;
+  const summaryTitle = strongest?.title || "Route wirkt machbar";
+  const summaryText = strongest?.text || `Diese Reihenfolge wirkt als eigener Roadtrip plausibel. ${recommendation.label}.`;
 
   return {
     metrics,
@@ -6082,11 +6082,11 @@ function buildSuggestBetterOrder() {
   buildState.suggestion = suggestion
     ? {
         ...suggestion,
-        message: `Suggested order trims about ${Math.round(suggestion.deltaKm).toLocaleString("de-DE")} km and keeps the route tighter.`
+        message: `Der Vorschlag spart ungefähr ${Math.round(suggestion.deltaKm).toLocaleString("de-DE")} km und hält die Route straffer.`
       }
     : {
         stops: null,
-        message: "Current order already reads reasonably tight for this park set."
+        message: "Die aktuelle Reihenfolge wirkt für dieses Park-Set bereits ausreichend straff."
       };
   renderBuildPanel();
 }
@@ -6112,13 +6112,16 @@ function renderBuildStatus() {
   el.style.display = "flex";
   if (buildState.routeLoading) {
     el.className = "build-route-status loading";
-    el.textContent = "Calculating road route…";
+    el.textContent = "Straßenroute wird berechnet…";
   } else if (buildState.routeError) {
     el.className = "build-route-status error";
-    el.textContent = "Route estimate · OSRM unavailable, showing straight-line path";
+    el.textContent = "Routenschätzung · OSRM nicht verfügbar, Luftlinie wird gezeigt";
   } else if (buildState.routeCoords) {
     el.className = "build-route-status done";
-    el.textContent = "Road route via OSRM";
+    el.textContent = "Straßenroute via OSRM";
+  } else {
+    el.className = "build-route-status";
+    el.textContent = "Routenstruktur wird vorbereitet…";
   }
 }
 
@@ -6139,8 +6142,8 @@ function renderBuildPanel() {
 
   const stopListHtml = stops.length === 0
     ? `<div class="build-stops-empty">
-        <strong>Click parks on the map</strong>
-        Tap any park dot to add it to your custom route. Reorder or remove stops below.
+        <strong>Klicke Parks auf der Karte an</strong>
+        Tippe einen Parkpunkt an, um ihn deiner eigenen Route hinzuzufügen. Unten kannst du Stopps umsortieren oder entfernen.
        </div>`
     : `<ul class="build-stop-list">
         ${stops.map((park, idx) => `
@@ -6148,12 +6151,12 @@ function renderBuildPanel() {
             <span class="build-stop-num">${idx + 1}</span>
             <div class="build-stop-info">
               <div class="build-stop-name">${park.name}</div>
-              <div class="build-stop-meta">${park.state}${idx > 0 ? ` · ${driveKm(stops[idx-1], park).toLocaleString("de-DE")} km from prev` : ' · Start'}</div>
+              <div class="build-stop-meta">${park.state}${idx > 0 ? ` · ${driveKm(stops[idx-1], park).toLocaleString("de-DE")} km seit dem vorherigen Stopp` : ' · Start'}</div>
             </div>
             <div class="build-stop-actions">
-              <button class="build-stop-btn" title="Move up" onclick="buildMoveStop(${idx}, -1)" ${idx === 0 ? "disabled" : ""}>↑</button>
-              <button class="build-stop-btn" title="Move down" onclick="buildMoveStop(${idx}, 1)" ${idx === stops.length - 1 ? "disabled" : ""}>↓</button>
-              <button class="build-stop-btn remove" title="Remove" onclick="buildRemovePark('${park.id}')">✕</button>
+              <button class="build-stop-btn" title="Nach oben" onclick="buildMoveStop(${idx}, -1)" ${idx === 0 ? "disabled" : ""}>↑</button>
+              <button class="build-stop-btn" title="Nach unten" onclick="buildMoveStop(${idx}, 1)" ${idx === stops.length - 1 ? "disabled" : ""}>↓</button>
+              <button class="build-stop-btn remove" title="Entfernen" onclick="buildRemovePark('${park.id}')">✕</button>
             </div>
           </li>`).join("")}
        </ul>`;
@@ -6165,15 +6168,15 @@ function renderBuildPanel() {
           <span class="build-stat-value">${stats.parks}</span>
         </div>
         <div class="build-stat">
-          <span class="build-stat-label">Est. km</span>
+          <span class="build-stat-label">Gesch. km</span>
           <span class="build-stat-value">${stats.km.toLocaleString("de-DE")}</span>
         </div>
         <div class="build-stat">
-          <span class="build-stat-label">Drive est.</span>
+          <span class="build-stat-label">Gesch. Fahrzeit</span>
           <span class="build-stat-value">${formatDriveHours(stats.hours)}</span>
         </div>
         <div class="build-stat">
-          <span class="build-stat-label">Min. days</span>
+          <span class="build-stat-label">Min. Tage</span>
           <span class="build-stat-value">${quality?.recommendation?.shortLabel || "—"}</span>
         </div>
        </div>`
@@ -6184,32 +6187,32 @@ function renderBuildPanel() {
         ...(exportData.googleLinks || []).map(link =>
           `<a href="${link.url}" target="_blank" rel="noopener" class="build-toolbar-btn">↗ ${link.label}</a>`
         ),
-        `<a href="${exportData.appleUrl}" target="_blank" rel="noopener" class="build-toolbar-btn">↗ Apple Maps${exportData.appleSimplified ? " (start→end)" : ""}</a>`
+        `<a href="${exportData.appleUrl}" target="_blank" rel="noopener" class="build-toolbar-btn">↗ Apple Maps${exportData.appleSimplified ? " (Start→Ziel)" : ""}</a>`
       ].join("")
     : "";
 
   // Ownership strip: names the route when it's real enough to export
   const ownershipHtml = stops.length >= 2
     ? `<div class="build-ownership">
-        <div class="build-ownership-label">Your route</div>
+        <div class="build-ownership-label">Deine Route</div>
         <div class="build-ownership-route">
           <em>${stops[0].name}</em> → <em>${stops[stops.length - 1].name}</em>
-          ${stops.length > 2 ? ` · via ${stops.length - 2} stop${stops.length - 2 === 1 ? "" : "s"}` : ""}
+          ${stops.length > 2 ? ` · über ${stops.length - 2} Stopp${stops.length - 2 === 1 ? "" : "s"}` : ""}
         </div>
        </div>`
     : "";
 
   // Export info label for the toolbar
   const exportInfoLabel = exportData && exportData.segmented
-    ? `<span style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:var(--sun);letter-spacing:0.08em;text-transform:uppercase;">Open in order</span>`
+    ? `<span style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:var(--sun);letter-spacing:0.08em;text-transform:uppercase;">In Reihenfolge öffnen</span>`
     : "";
 
   const qualityHtml = quality
     ? `<div class="build-quality ${quality.summaryTone}">
-        <div class="build-quality-kicker">Route quality</div>
+        <div class="build-quality-kicker">Routenqualität</div>
         <div class="build-quality-title">${quality.summaryTitle}</div>
         <div class="build-quality-copy">${quality.summaryText}</div>
-        <div class="build-quality-meta">Minimum recommended days · ${quality.recommendation.label}</div>
+        <div class="build-quality-meta">Empfohlene Mindestdauer · ${quality.recommendation.label}</div>
         ${quality.warnings.length
           ? `<ul class="build-quality-list">
               ${quality.warnings.map(warning => `<li><strong>${warning.title}:</strong> ${warning.text}</li>`).join("")}
@@ -6217,7 +6220,7 @@ function renderBuildPanel() {
           : ""}
         ${buildState.suggestionChecked && buildState.suggestion
           ? `<div class="build-suggestion-note">
-              <strong>Order suggestion:</strong> ${buildState.suggestion.message}
+              <strong>Reihenfolge-Vorschlag:</strong> ${buildState.suggestion.message}
             </div>`
           : ""}
       </div>`
@@ -6227,19 +6230,19 @@ function renderBuildPanel() {
     <div class="build-panel visible" id="build-panel">
       <div class="build-panel-header">
         <div>
-          <div class="build-panel-kicker">Build Mode</div>
-          <div class="build-panel-title">${stops.length === 0 ? "Pick parks on the map" : stops.length === 1 ? "Add one more stop to route" : `${stops.length} stops selected`}</div>
+          <div class="build-panel-kicker">Routenbau</div>
+          <div class="build-panel-title">${stops.length === 0 ? "Parks auf der Karte auswählen" : stops.length === 1 ? "Einen weiteren Stopp zur Route hinzufügen" : `${stops.length} Stopps ausgewählt`}</div>
         </div>
-        <button class="build-panel-close" onclick="exitBuildMode()">Exit Build</button>
+        <button class="build-panel-close" onclick="exitBuildMode()">Routenbau beenden</button>
       </div>
       ${ownershipHtml}
       ${qualityHtml}
       <div class="build-toolbar">
-        <button class="build-toolbar-btn danger" onclick="clearBuildRoute()">Clear</button>
-        ${stops.length >= 2 ? `<button class="build-toolbar-btn" onclick="fitBuildBounds()">Fit Map</button>` : ""}
-        ${stops.length >= 1 ? `<button class="build-toolbar-btn" onclick="shareCurrentRoute(this)">Share route</button>` : ""}
-        ${stops.length >= 3 ? `<button class="build-toolbar-btn" onclick="buildSuggestBetterOrder()">Suggest better order</button>` : ""}
-        ${buildState.suggestion?.stops?.length ? `<button class="build-toolbar-btn" onclick="buildApplySuggestion()">Apply suggestion</button>` : ""}
+        <button class="build-toolbar-btn danger" onclick="clearBuildRoute()">Leeren</button>
+        ${stops.length >= 2 ? `<button class="build-toolbar-btn" onclick="fitBuildBounds()">Karte einpassen</button>` : ""}
+        ${stops.length >= 1 ? `<button class="build-toolbar-btn" onclick="shareCurrentRoute(this)">Route teilen</button>` : ""}
+        ${stops.length >= 3 ? `<button class="build-toolbar-btn" onclick="buildSuggestBetterOrder()">Bessere Reihenfolge vorschlagen</button>` : ""}
+        ${buildState.suggestion?.stops?.length ? `<button class="build-toolbar-btn" onclick="buildApplySuggestion()">Vorschlag anwenden</button>` : ""}
         ${exportHtml ? `<div class="build-toolbar-sep"></div><div class="build-toolbar-right">${exportInfoLabel}${exportHtml}</div>` : ""}
       </div>
       <div class="build-stops">${stopListHtml}</div>
@@ -6266,10 +6269,8 @@ function enterBuildMode() {
   syncBuildFabState();
 
   initBuildMapLayers();
-  renderBuildPanel();
-  renderBuildRouteOnMap();
-  renderMapFeatures();
   renderAll();
+  renderBuildRouteOnMap();
 }
 
 function exitBuildMode() {
@@ -6280,8 +6281,6 @@ function exitBuildMode() {
   syncBuildFabState();
 
   clearBuildRouteFromMap();
-  renderBuildPanel();
-  renderMapFeatures();
   renderAll();
 }
 
