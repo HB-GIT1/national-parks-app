@@ -1,0 +1,1005 @@
+{
+  "loops": [
+    {
+      "id": "wyoming-double",
+      "operationalItinerary": true,
+      "routeFile": "/routes/wyoming-double.geojson",
+      "routeStatus": "placeholder",
+      "places": {
+        "jackson": {
+          "label": "Jackson, WY",
+          "kind": "town",
+          "lat": 43.4799,
+          "lng": -110.7624
+        },
+        "old-faithful": {
+          "label": "Old Faithful Area",
+          "kind": "gateway",
+          "lat": 44.4605,
+          "lng": -110.8281
+        },
+        "canyon-village": {
+          "label": "Canyon Village",
+          "kind": "gateway",
+          "lat": 44.7337,
+          "lng": -110.4958
+        }
+      },
+      "legs": [
+        {
+          "id": "arrival-transfer",
+          "title": "Arrival and transfer to Jackson",
+          "dayStart": 1,
+          "dayEnd": 1,
+          "type": "airport-prefix",
+          "from": { "kind": "airport-choice", "ref": null, "label": "Selected airport" },
+          "to": { "kind": "place", "ref": "jackson", "label": "Jackson, WY" },
+          "overnightBase": "Jackson, WY",
+          "nights": 1,
+          "driveKm": 25,
+          "driveHours": 0.5,
+          "note": "Pick up the rental car and stay in Jackson for early Grand Teton access.",
+          "nav": {
+            "mode": "point-to-point",
+            "originSource": "selected-airport",
+            "destinationSource": "leg.to",
+            "via": [],
+            "precision": "place"
+          },
+          "airportVariants": {
+            "JAC": {
+              "driveKm": 25,
+              "driveHours": 0.5,
+              "overnightBase": "Jackson, WY",
+              "note": "Short transfer. Stay in Jackson and keep the rest of the day light."
+            },
+            "SLC": {
+              "driveKm": 455,
+              "driveHours": 5,
+              "overnightBase": "Jackson, WY",
+              "note": "Long arrival day. Treat this as transfer only, not a park day."
+            },
+            "BZN": {
+              "driveKm": 325,
+              "driveHours": 4.5,
+              "overnightBase": "Jackson, WY",
+              "note": "Bozeman is workable if flights price better than Jackson, but it still makes day one a transfer."
+            }
+          }
+        },
+        {
+          "id": "grand-teton-base-day",
+          "title": "Grand Teton from Jackson base",
+          "dayStart": 2,
+          "dayEnd": 2,
+          "type": "park-day",
+          "from": { "kind": "place", "ref": "jackson", "label": "Jackson, WY" },
+          "to": { "kind": "park", "ref": "grandteton", "label": "Grand Teton National Park" },
+          "overnightBase": "Jackson, WY",
+          "nights": 1,
+          "driveKm": 80,
+          "driveHours": 1.5,
+          "note": "Base-stay day. Return to Jackson after sunset rather than moving hotels.",
+          "nav": {
+            "mode": "park-access",
+            "originSource": "leg.from",
+            "destinationSource": "leg.to",
+            "via": [],
+            "precision": "park-anchor"
+          }
+        },
+        {
+          "id": "jackson-to-old-faithful",
+          "title": "Into Yellowstone via South Entrance",
+          "dayStart": 3,
+          "dayEnd": 3,
+          "type": "drive",
+          "from": { "kind": "place", "ref": "jackson", "label": "Jackson, WY" },
+          "to": { "kind": "place", "ref": "old-faithful", "label": "Old Faithful Area" },
+          "overnightBase": "Old Faithful Area",
+          "nights": 1,
+          "driveKm": 160,
+          "driveHours": 3,
+          "note": "Enter Yellowstone early and keep the afternoon for West Thumb and geyser basin stops.",
+          "nav": {
+            "mode": "point-to-point-via",
+            "originSource": "leg.from",
+            "destinationSource": "leg.to",
+            "via": [
+              { "kind": "park", "ref": "yellowstone", "label": "Yellowstone South Entrance corridor" }
+            ],
+            "precision": "park-anchor"
+          }
+        },
+        {
+          "id": "old-faithful-to-canyon",
+          "title": "Geyser basin to Canyon Village",
+          "dayStart": 4,
+          "dayEnd": 4,
+          "type": "drive",
+          "from": { "kind": "place", "ref": "old-faithful", "label": "Old Faithful Area" },
+          "to": { "kind": "place", "ref": "canyon-village", "label": "Canyon Village" },
+          "overnightBase": "Canyon Village",
+          "nights": 1,
+          "driveKm": 95,
+          "driveHours": 2,
+          "note": "Make this a half-drive, half-sightseeing day and reach Canyon before dusk.",
+          "nav": {
+            "mode": "point-to-point",
+            "originSource": "leg.from",
+            "destinationSource": "leg.to",
+            "via": [],
+            "precision": "place"
+          }
+        },
+        {
+          "id": "yellowstone-north-base-day",
+          "title": "Canyon and Lamar wildlife day",
+          "dayStart": 5,
+          "dayEnd": 6,
+          "type": "park-day",
+          "from": { "kind": "place", "ref": "canyon-village", "label": "Canyon Village" },
+          "to": { "kind": "park", "ref": "yellowstone", "label": "Yellowstone North / Lamar Valley" },
+          "overnightBase": "Canyon Village",
+          "nights": 2,
+          "driveKm": 170,
+          "driveHours": 3.5,
+          "note": "Use Canyon as a fixed base for waterfall viewpoints and Lamar wildlife windows.",
+          "nav": {
+            "mode": "park-access",
+            "originSource": "leg.from",
+            "destinationSource": "leg.to",
+            "via": [],
+            "precision": "park-anchor"
+          }
+        },
+        {
+          "id": "return-to-airport",
+          "title": "Return south for departure",
+          "dayStart": 7,
+          "dayEnd": 7,
+          "type": "return",
+          "from": { "kind": "place", "ref": "canyon-village", "label": "Canyon Village" },
+          "to": { "kind": "airport-choice", "ref": null, "label": "Selected airport" },
+          "overnightBase": "",
+          "nights": 0,
+          "driveKm": 210,
+          "driveHours": 4,
+          "note": "Departure day. Leave early if you want a same-day flight out of Jackson.",
+          "nav": {
+            "mode": "airport-return",
+            "originSource": "leg.from",
+            "destinationSource": "selected-airport",
+            "via": [],
+            "precision": "place"
+          },
+          "airportVariants": {
+            "JAC": {
+              "driveKm": 210,
+              "driveHours": 4,
+              "note": "Leave early for a same-day Jackson departure."
+            },
+            "SLC": {
+              "driveKm": 640,
+              "driveHours": 7,
+              "note": "Treat this as a long exit day with no extra stops."
+            },
+            "BZN": {
+              "driveKm": 245,
+              "driveHours": 3.5,
+              "note": "Bozeman is the clean northern exit if you do not need to close the loop through Jackson."
+            }
+          }
+        }
+      ],
+      "waypoints": [
+        [-110.73, 43.48],
+        [-110.70, 43.66],
+        [-110.68, 43.79],
+        [-110.63, 44.05],
+        [-110.59, 44.15],
+        [-110.67, 44.45],
+        [-110.59, 44.78],
+        [-110.48, 44.92],
+        [-110.40, 45.03]
+      ]
+    },
+    {
+      "id": "california-grand",
+      "operationalItinerary": true,
+      "routeFile": "/routes/california-grand.geojson",
+      "routeStatus": "placeholder",
+      "places": {
+        "san-francisco": {
+          "label": "San Francisco, CA",
+          "kind": "city",
+          "lat": 37.7749,
+          "lng": -122.4194
+        },
+        "eureka": {
+          "label": "Eureka, CA",
+          "kind": "town",
+          "lat": 40.8021,
+          "lng": -124.1637
+        },
+        "yosemite-west": {
+          "label": "Yosemite West / El Portal",
+          "kind": "gateway",
+          "lat": 37.6438,
+          "lng": -119.7257
+        },
+        "three-rivers": {
+          "label": "Three Rivers, CA",
+          "kind": "gateway",
+          "lat": 36.4386,
+          "lng": -118.9045
+        },
+        "joshua-tree-town": {
+          "label": "Joshua Tree / Twentynine Palms",
+          "kind": "gateway",
+          "lat": 34.1347,
+          "lng": -116.3131
+        },
+        "los-angeles": {
+          "label": "Los Angeles, CA",
+          "kind": "city",
+          "lat": 34.0522,
+          "lng": -118.2437
+        }
+      },
+      "legs": [
+        {
+          "id": "arrival-to-north-coast",
+          "title": "Arrival and positioning to Northern California",
+          "dayStart": 1,
+          "dayEnd": 2,
+          "type": "airport-prefix",
+          "from": { "kind": "airport-choice", "ref": null, "label": "Selected airport" },
+          "to": { "kind": "place", "ref": "eureka", "label": "Eureka, CA" },
+          "overnightBase": "Eureka, CA",
+          "nights": 2,
+          "driveKm": 450,
+          "driveHours": 5.5,
+          "note": "Use the opening two days to get properly into Redwood position instead of forcing half a park day around arrival logistics.",
+          "nav": {
+            "mode": "point-to-point",
+            "originSource": "selected-airport",
+            "destinationSource": "leg.to",
+            "via": [],
+            "precision": "place"
+          },
+          "airportVariants": {
+            "SFO": {
+              "driveKm": 450,
+              "driveHours": 5.5,
+              "overnightBase": "Eureka, CA",
+              "note": "Best northbound start. Land in the Bay Area, then use the first two days to get properly north."
+            },
+            "LAX": {
+              "driveKm": 1030,
+              "driveHours": 11,
+              "overnightBase": "Eureka, CA",
+              "note": "Los Angeles is a weak northbound start. Only use it if flight pricing matters more than a clean route opening."
+            },
+            "FAT": {
+              "driveKm": 690,
+              "driveHours": 7.5,
+              "overnightBase": "Eureka, CA",
+              "note": "Fresno works, but it is still a compromise airport for the Redwood-first version."
+            }
+          }
+        },
+        {
+          "id": "redwood-base-day",
+          "title": "Redwood day from Eureka base",
+          "dayStart": 3,
+          "dayEnd": 3,
+          "type": "park-day",
+          "from": { "kind": "place", "ref": "eureka", "label": "Eureka, CA" },
+          "to": { "kind": "park", "ref": "redwood", "label": "Redwood National Park" },
+          "overnightBase": "Eureka, CA",
+          "nights": 1,
+          "driveKm": 110,
+          "driveHours": 2,
+          "note": "Keep Eureka fixed and use the day for Tall Trees, Fern Canyon, and whichever coastal forest window the weather rewards.",
+          "nav": {
+            "mode": "park-access",
+            "originSource": "leg.from",
+            "destinationSource": "leg.to",
+            "via": [],
+            "precision": "park-anchor"
+          }
+        },
+        {
+          "id": "redwood-to-yosemite",
+          "title": "Interior transfer to Yosemite",
+          "dayStart": 4,
+          "dayEnd": 5,
+          "type": "drive",
+          "from": { "kind": "place", "ref": "eureka", "label": "Eureka, CA" },
+          "to": { "kind": "place", "ref": "yosemite-west", "label": "Yosemite West / El Portal" },
+          "overnightBase": "Yosemite West / El Portal",
+          "nights": 2,
+          "driveKm": 610,
+          "driveHours": 7.5,
+          "note": "This is the longest inland repositioning of the loop. Treat it as structure, not as a scenic bonus day.",
+          "nav": {
+            "mode": "point-to-point",
+            "originSource": "leg.from",
+            "destinationSource": "leg.to",
+            "via": [],
+            "precision": "place"
+          }
+        },
+        {
+          "id": "yosemite-base-day",
+          "title": "Yosemite day from west-side base",
+          "dayStart": 6,
+          "dayEnd": 6,
+          "type": "park-day",
+          "from": { "kind": "place", "ref": "yosemite-west", "label": "Yosemite West / El Portal" },
+          "to": { "kind": "park", "ref": "yosemite", "label": "Yosemite National Park" },
+          "overnightBase": "Yosemite West / El Portal",
+          "nights": 1,
+          "driveKm": 85,
+          "driveHours": 2,
+          "note": "Use the west-side base for an early valley entry and keep the day inside Yosemite instead of relocating again.",
+          "nav": {
+            "mode": "park-access",
+            "originSource": "leg.from",
+            "destinationSource": "leg.to",
+            "via": [],
+            "precision": "park-anchor"
+          }
+        },
+        {
+          "id": "yosemite-to-sequoia",
+          "title": "Move south to Sequoia base",
+          "dayStart": 7,
+          "dayEnd": 7,
+          "type": "drive",
+          "from": { "kind": "place", "ref": "yosemite-west", "label": "Yosemite West / El Portal" },
+          "to": { "kind": "place", "ref": "three-rivers", "label": "Three Rivers, CA" },
+          "overnightBase": "Three Rivers, CA",
+          "nights": 1,
+          "driveKm": 285,
+          "driveHours": 4.5,
+          "note": "Move south in one clean push and sleep low so Sequoia starts as a fresh park day, not as a late arrival.",
+          "nav": {
+            "mode": "point-to-point",
+            "originSource": "leg.from",
+            "destinationSource": "leg.to",
+            "via": [],
+            "precision": "place"
+          }
+        },
+        {
+          "id": "sequoia-base-day",
+          "title": "Sequoia from Three Rivers base",
+          "dayStart": 8,
+          "dayEnd": 8,
+          "type": "park-day",
+          "from": { "kind": "place", "ref": "three-rivers", "label": "Three Rivers, CA" },
+          "to": { "kind": "park", "ref": "sequoia", "label": "Sequoia National Park" },
+          "overnightBase": "Three Rivers, CA",
+          "nights": 1,
+          "driveKm": 95,
+          "driveHours": 2.5,
+          "note": "Use the full day for Giant Forest and Moro Rock rather than collapsing Sequoia into a through-leg.",
+          "nav": {
+            "mode": "park-access",
+            "originSource": "leg.from",
+            "destinationSource": "leg.to",
+            "via": [],
+            "precision": "park-anchor"
+          }
+        },
+        {
+          "id": "sequoia-to-desert",
+          "title": "Desert transfer to Joshua Tree base",
+          "dayStart": 9,
+          "dayEnd": 9,
+          "type": "drive",
+          "from": { "kind": "place", "ref": "three-rivers", "label": "Three Rivers, CA" },
+          "to": { "kind": "place", "ref": "joshua-tree-town", "label": "Joshua Tree / Twentynine Palms" },
+          "overnightBase": "Joshua Tree / Twentynine Palms",
+          "nights": 1,
+          "driveKm": 430,
+          "driveHours": 5.5,
+          "note": "Leave early, reset the climate and pacing, and use the desert only as an evening arrival on this transfer day.",
+          "nav": {
+            "mode": "point-to-point",
+            "originSource": "leg.from",
+            "destinationSource": "leg.to",
+            "via": [],
+            "precision": "place"
+          }
+        },
+        {
+          "id": "joshua-tree-base-day",
+          "title": "Joshua Tree base day",
+          "dayStart": 10,
+          "dayEnd": 11,
+          "type": "park-day",
+          "from": { "kind": "place", "ref": "joshua-tree-town", "label": "Joshua Tree / Twentynine Palms" },
+          "to": { "kind": "park", "ref": "joshuatree", "label": "Joshua Tree National Park" },
+          "overnightBase": "Joshua Tree / Twentynine Palms",
+          "nights": 2,
+          "driveKm": 95,
+          "driveHours": 2,
+          "note": "Give the desert two slower days so Joshua Tree works as a real final chapter instead of a single rushed stop.",
+          "nav": {
+            "mode": "park-access",
+            "originSource": "leg.from",
+            "destinationSource": "leg.to",
+            "via": [],
+            "precision": "park-anchor"
+          }
+        },
+        {
+          "id": "return-to-airport",
+          "title": "Return to departure airport",
+          "dayStart": 12,
+          "dayEnd": 12,
+          "type": "return",
+          "from": { "kind": "place", "ref": "joshua-tree-town", "label": "Joshua Tree / Twentynine Palms" },
+          "to": { "kind": "airport-choice", "ref": null, "label": "Selected airport" },
+          "overnightBase": "",
+          "nights": 0,
+          "driveKm": 210,
+          "driveHours": 3,
+          "note": "Los Angeles is the clean finish. San Francisco is still possible, but only as a deliberate repositioning choice.",
+          "nav": {
+            "mode": "airport-return",
+            "originSource": "leg.from",
+            "destinationSource": "selected-airport",
+            "via": [],
+            "precision": "place"
+          },
+          "airportVariants": {
+            "LAX": {
+              "driveKm": 210,
+              "driveHours": 3,
+              "note": "Direct and clean return into Los Angeles."
+            },
+            "SFO": {
+              "driveKm": 810,
+              "driveHours": 8.5,
+              "note": "Long reposition back north. Only choose this if you explicitly value the circular airport logic."
+            },
+            "FAT": {
+              "driveKm": 520,
+              "driveHours": 5.5,
+              "note": "Possible, but Fresno remains the compromise airport rather than the clean route finish."
+            }
+          }
+        }
+      ],
+      "waypoints": [
+        [-122.42, 37.77],
+        [-122.75, 38.45],
+        [-123.05, 39.40],
+        [-123.35, 40.35],
+        [-123.80, 41.30],
+        [-123.10, 40.85],
+        [-122.30, 40.10],
+        [-121.10, 39.05],
+        [-120.20, 38.35],
+        [-119.54, 37.87],
+        [-119.15, 37.30],
+        [-118.85, 36.90],
+        [-118.57, 36.49],
+        [-118.20, 35.65],
+        [-117.60, 34.85],
+        [-116.80, 34.20],
+        [-115.90, 33.87],
+        [-116.45, 34.20],
+        [-117.10, 34.02],
+        [-118.25, 34.05]
+      ]
+    },
+    {
+      "id": "desert-southwest",
+      "operationalItinerary": true,
+      "routeFile": "/routes/desert-southwest.geojson",
+      "routeStatus": "placeholder",
+      "places": {
+        "springdale": {
+          "label": "Springdale, UT",
+          "kind": "gateway",
+          "lat": 37.1889,
+          "lng": -112.9986
+        },
+        "tusayan": {
+          "label": "Tusayan / Grand Canyon South Rim",
+          "kind": "gateway",
+          "lat": 35.9736,
+          "lng": -112.1266
+        },
+        "joshua-tree-town": {
+          "label": "Joshua Tree / Twentynine Palms",
+          "kind": "gateway",
+          "lat": 34.1347,
+          "lng": -116.3131
+        },
+        "las-vegas": {
+          "label": "Las Vegas, NV",
+          "kind": "city",
+          "lat": 36.1699,
+          "lng": -115.1398
+        },
+        "los-angeles": {
+          "label": "Los Angeles, CA",
+          "kind": "city",
+          "lat": 34.0522,
+          "lng": -118.2437
+        },
+        "phoenix": {
+          "label": "Phoenix, AZ",
+          "kind": "city",
+          "lat": 33.4484,
+          "lng": -112.074
+        }
+      },
+      "legs": [
+        {
+          "id": "arrival-to-zion",
+          "title": "Arrival and transfer to Zion base",
+          "dayStart": 1,
+          "dayEnd": 1,
+          "type": "airport-prefix",
+          "from": { "kind": "airport-choice", "ref": null, "label": "Selected airport" },
+          "to": { "kind": "place", "ref": "springdale", "label": "Springdale, UT" },
+          "overnightBase": "Springdale, UT",
+          "nights": 1,
+          "driveKm": 270,
+          "driveHours": 3,
+          "note": "Las Vegas is the cleanest airport for this route. Get into Springdale and save Zion for the next morning.",
+          "nav": {
+            "mode": "point-to-point",
+            "originSource": "selected-airport",
+            "destinationSource": "leg.to",
+            "via": [],
+            "precision": "place"
+          },
+          "airportVariants": {
+            "LAS": {
+              "driveKm": 270,
+              "driveHours": 3,
+              "overnightBase": "Springdale, UT",
+              "note": "Cleanest arrival. Reach Springdale and start Zion fresh the next day."
+            },
+            "PHX": {
+              "driveKm": 660,
+              "driveHours": 6.5,
+              "overnightBase": "Springdale, UT",
+              "note": "Much longer arrival from Phoenix. Treat Day 1 as transfer only."
+            },
+            "LAX": {
+              "driveKm": 560,
+              "driveHours": 6,
+              "overnightBase": "Springdale, UT",
+              "note": "Operationally possible, but less clean than Las Vegas for the Zion-first version."
+            }
+          }
+        },
+        {
+          "id": "zion-base-days",
+          "title": "Zion from Springdale base",
+          "dayStart": 2,
+          "dayEnd": 3,
+          "type": "park-day",
+          "from": { "kind": "place", "ref": "springdale", "label": "Springdale, UT" },
+          "to": { "kind": "park", "ref": "zion", "label": "Zion National Park" },
+          "overnightBase": "Springdale, UT",
+          "nights": 2,
+          "driveKm": 70,
+          "driveHours": 1.5,
+          "note": "Keep one stable base for shuttle access, Narrows timing, and flexible crowd management.",
+          "nav": {
+            "mode": "park-access",
+            "originSource": "leg.from",
+            "destinationSource": "leg.to",
+            "via": [],
+            "precision": "park-anchor"
+          }
+        },
+        {
+          "id": "zion-to-grand-canyon",
+          "title": "Transfer east to Grand Canyon South Rim",
+          "dayStart": 4,
+          "dayEnd": 4,
+          "type": "drive",
+          "from": { "kind": "place", "ref": "springdale", "label": "Springdale, UT" },
+          "to": { "kind": "place", "ref": "tusayan", "label": "Tusayan / Grand Canyon South Rim" },
+          "overnightBase": "Tusayan / Grand Canyon South Rim",
+          "nights": 2,
+          "driveKm": 410,
+          "driveHours": 5,
+          "note": "This is the structural bridge day. Arrive in time for a short rim sunset if possible.",
+          "nav": {
+            "mode": "point-to-point",
+            "originSource": "leg.from",
+            "destinationSource": "leg.to",
+            "via": [],
+            "precision": "place"
+          }
+        },
+        {
+          "id": "grand-canyon-base-day",
+          "title": "Grand Canyon from South Rim base",
+          "dayStart": 5,
+          "dayEnd": 6,
+          "type": "park-day",
+          "from": { "kind": "place", "ref": "tusayan", "label": "Tusayan / Grand Canyon South Rim" },
+          "to": { "kind": "park", "ref": "grandcanyon", "label": "Grand Canyon National Park" },
+          "overnightBase": "Tusayan / Grand Canyon South Rim",
+          "nights": 2,
+          "driveKm": 95,
+          "driveHours": 2,
+          "note": "Use the same base for sunrise, sunset, and shorter rim movement instead of packing the canyon into one pass.",
+          "nav": {
+            "mode": "park-access",
+            "originSource": "leg.from",
+            "destinationSource": "leg.to",
+            "via": [],
+            "precision": "park-anchor"
+          }
+        },
+        {
+          "id": "grand-canyon-to-joshua-tree",
+          "title": "Long desert transfer to Joshua Tree base",
+          "dayStart": 7,
+          "dayEnd": 7,
+          "type": "drive",
+          "from": { "kind": "place", "ref": "tusayan", "label": "Tusayan / Grand Canyon South Rim" },
+          "to": { "kind": "place", "ref": "joshua-tree-town", "label": "Joshua Tree / Twentynine Palms" },
+          "overnightBase": "Joshua Tree / Twentynine Palms",
+          "nights": 2,
+          "driveKm": 560,
+          "driveHours": 6,
+          "note": "This is the reset leg. Keep expectations simple and use the evening only if light and energy allow it.",
+          "nav": {
+            "mode": "point-to-point",
+            "originSource": "leg.from",
+            "destinationSource": "leg.to",
+            "via": [],
+            "precision": "place"
+          }
+        },
+        {
+          "id": "joshua-tree-base-day",
+          "title": "Joshua Tree base day",
+          "dayStart": 8,
+          "dayEnd": 8,
+          "type": "park-day",
+          "from": { "kind": "place", "ref": "joshua-tree-town", "label": "Joshua Tree / Twentynine Palms" },
+          "to": { "kind": "park", "ref": "joshuatree", "label": "Joshua Tree National Park" },
+          "overnightBase": "Joshua Tree / Twentynine Palms",
+          "nights": 1,
+          "driveKm": 90,
+          "driveHours": 2,
+          "note": "Use this as a slower desert day with flexible access and a full sunset window.",
+          "nav": {
+            "mode": "park-access",
+            "originSource": "leg.from",
+            "destinationSource": "leg.to",
+            "via": [],
+            "precision": "park-anchor"
+          }
+        },
+        {
+          "id": "return-to-airport",
+          "title": "Return to departure airport",
+          "dayStart": 9,
+          "dayEnd": 9,
+          "type": "return",
+          "from": { "kind": "place", "ref": "joshua-tree-town", "label": "Joshua Tree / Twentynine Palms" },
+          "to": { "kind": "airport-choice", "ref": null, "label": "Selected airport" },
+          "overnightBase": "",
+          "nights": 0,
+          "driveKm": 210,
+          "driveHours": 3,
+          "note": "Los Angeles is the easiest western exit. Las Vegas works if you want a cleaner loop closure.",
+          "nav": {
+            "mode": "airport-return",
+            "originSource": "leg.from",
+            "destinationSource": "selected-airport",
+            "via": [],
+            "precision": "place"
+          },
+          "airportVariants": {
+            "LAX": {
+              "driveKm": 210,
+              "driveHours": 3,
+              "note": "Clean westbound finish into Los Angeles."
+            },
+            "LAS": {
+              "driveKm": 300,
+              "driveHours": 3.5,
+              "note": "Las Vegas is also workable if you want a more circular airport logic."
+            },
+            "PHX": {
+              "driveKm": 430,
+              "driveHours": 4.5,
+              "note": "Phoenix is possible, but it pulls the trip southeast on the last day."
+            }
+          }
+        }
+      ],
+      "waypoints": [
+        [-115.15, 36.17],
+        [-114.70, 36.45],
+        [-113.80, 36.95],
+        [-113.03, 37.30],
+        [-112.75, 37.00],
+        [-112.35, 36.55],
+        [-112.14, 36.05],
+        [-112.45, 35.60],
+        [-113.40, 35.05],
+        [-114.60, 34.35],
+        [-115.90, 33.87],
+        [-116.65, 33.95],
+        [-117.35, 34.02],
+        [-118.25, 34.05]
+      ]
+    },
+    {
+      "id": "pacific-northwest-crown",
+      "operationalItinerary": true,
+      "routeFile": "/routes/pacific-northwest-crown.geojson",
+      "routeStatus": "placeholder",
+      "places": {
+        "port-angeles": {
+          "label": "Port Angeles, WA",
+          "kind": "town",
+          "lat": 48.1181,
+          "lng": -123.4307
+        },
+        "forks": {
+          "label": "Forks / Kalaloch",
+          "kind": "gateway",
+          "lat": 47.9504,
+          "lng": -124.3855
+        },
+        "ashford": {
+          "label": "Ashford, WA",
+          "kind": "gateway",
+          "lat": 46.7565,
+          "lng": -121.9531
+        },
+        "winthrop": {
+          "label": "Winthrop, WA",
+          "kind": "town",
+          "lat": 48.4784,
+          "lng": -120.1862
+        }
+      },
+      "legs": [
+        {
+          "id": "arrival-to-peninsula",
+          "title": "Arrival and move onto the Olympic Peninsula",
+          "dayStart": 1,
+          "dayEnd": 1,
+          "type": "airport-prefix",
+          "from": { "kind": "airport-choice", "ref": null, "label": "Selected airport" },
+          "to": { "kind": "place", "ref": "port-angeles", "label": "Port Angeles, WA" },
+          "overnightBase": "Port Angeles, WA",
+          "nights": 1,
+          "driveKm": 180,
+          "driveHours": 2.5,
+          "note": "Cross onto the peninsula on arrival and sleep west of the metro area, not in Seattle.",
+          "nav": {
+            "mode": "point-to-point",
+            "originSource": "selected-airport",
+            "destinationSource": "leg.to",
+            "via": [],
+            "precision": "place"
+          },
+          "airportVariants": {
+            "SEA": {
+              "driveKm": 180,
+              "driveHours": 2.5,
+              "overnightBase": "Port Angeles, WA",
+              "note": "Seattle is the cleanest entry. Push straight to the peninsula."
+            },
+            "PDX": {
+              "driveKm": 430,
+              "driveHours": 6,
+              "overnightBase": "Port Angeles, WA",
+              "note": "Portland is workable, but it turns the opening day into a clear positioning exercise."
+            },
+            "PAE": {
+              "driveKm": 135,
+              "driveHours": 2,
+              "overnightBase": "Port Angeles, WA",
+              "note": "Paine Field is the shortest north-side entry if flight availability works."
+            }
+          }
+        },
+        {
+          "id": "olympic-north-base-day",
+          "title": "Olympic north side from Port Angeles",
+          "dayStart": 2,
+          "dayEnd": 2,
+          "type": "park-day",
+          "from": { "kind": "place", "ref": "port-angeles", "label": "Port Angeles, WA" },
+          "to": { "kind": "park", "ref": "olympic", "label": "Olympic National Park" },
+          "overnightBase": "Port Angeles, WA",
+          "nights": 1,
+          "driveKm": 125,
+          "driveHours": 3,
+          "note": "Use Port Angeles for Hurricane Ridge and the north-side lake corridor instead of moving too early.",
+          "nav": {
+            "mode": "park-access",
+            "originSource": "leg.from",
+            "destinationSource": "leg.to",
+            "via": [],
+            "precision": "park-anchor"
+          }
+        },
+        {
+          "id": "peninsula-to-rainforest-base",
+          "title": "Shift west for rainforest and coast",
+          "dayStart": 3,
+          "dayEnd": 3,
+          "type": "drive",
+          "from": { "kind": "place", "ref": "port-angeles", "label": "Port Angeles, WA" },
+          "to": { "kind": "place", "ref": "forks", "label": "Forks / Kalaloch" },
+          "overnightBase": "Forks / Kalaloch",
+          "nights": 1,
+          "driveKm": 145,
+          "driveHours": 3,
+          "note": "Move west deliberately so Hoh and the coast read as their own weather system, not as a rushed out-and-back from Port Angeles.",
+          "nav": {
+            "mode": "point-to-point",
+            "originSource": "leg.from",
+            "destinationSource": "leg.to",
+            "via": [],
+            "precision": "place"
+          }
+        },
+        {
+          "id": "olympic-to-rainier",
+          "title": "Long turn inland to Rainier base",
+          "dayStart": 4,
+          "dayEnd": 4,
+          "type": "drive",
+          "from": { "kind": "place", "ref": "forks", "label": "Forks / Kalaloch" },
+          "to": { "kind": "place", "ref": "ashford", "label": "Ashford, WA" },
+          "overnightBase": "Ashford, WA",
+          "nights": 1,
+          "driveKm": 335,
+          "driveHours": 5.5,
+          "note": "Leave the coast early. This is the intentional reset from wet peninsula weather into volcano country, not a sightseeing blend day.",
+          "nav": {
+            "mode": "point-to-point",
+            "originSource": "leg.from",
+            "destinationSource": "leg.to",
+            "via": [],
+            "precision": "place"
+          }
+        },
+        {
+          "id": "rainier-base-day",
+          "title": "Rainier from Ashford base",
+          "dayStart": 5,
+          "dayEnd": 5,
+          "type": "park-day",
+          "from": { "kind": "place", "ref": "ashford", "label": "Ashford, WA" },
+          "to": { "kind": "park", "ref": "rainier", "label": "Mount Rainier National Park" },
+          "overnightBase": "Ashford, WA",
+          "nights": 1,
+          "driveKm": 95,
+          "driveHours": 2.5,
+          "note": "Keep the full day for Paradise and subalpine viewpoints instead of treating Rainier as a pass-through stop.",
+          "nav": {
+            "mode": "park-access",
+            "originSource": "leg.from",
+            "destinationSource": "leg.to",
+            "via": [],
+            "precision": "park-anchor"
+          }
+        },
+        {
+          "id": "rainier-to-winthrop",
+          "title": "Bridge north into the Cascades spine",
+          "dayStart": 6,
+          "dayEnd": 6,
+          "type": "drive",
+          "from": { "kind": "place", "ref": "ashford", "label": "Ashford, WA" },
+          "to": { "kind": "place", "ref": "winthrop", "label": "Winthrop, WA" },
+          "overnightBase": "Winthrop, WA",
+          "nights": 1,
+          "driveKm": 370,
+          "driveHours": 6,
+          "note": "Treat this as a pure bridge day and leave Ashford early. The value is in buying a full North Cascades day, not in squeezing more Rainier time in first.",
+          "nav": {
+            "mode": "point-to-point",
+            "originSource": "leg.from",
+            "destinationSource": "leg.to",
+            "via": [],
+            "precision": "place"
+          }
+        },
+        {
+          "id": "north-cascades-base-day",
+          "title": "North Cascades from Winthrop base",
+          "dayStart": 7,
+          "dayEnd": 7,
+          "type": "park-day",
+          "from": { "kind": "place", "ref": "winthrop", "label": "Winthrop, WA" },
+          "to": { "kind": "park", "ref": "northcascades", "label": "North Cascades National Park" },
+          "overnightBase": "Winthrop, WA",
+          "nights": 1,
+          "driveKm": 165,
+          "driveHours": 3.5,
+          "note": "Use the east side for Washington Pass, Diablo Lake, and the sharpest alpine contrast in the loop.",
+          "nav": {
+            "mode": "park-access",
+            "originSource": "leg.from",
+            "destinationSource": "leg.to",
+            "via": [],
+            "precision": "park-anchor"
+          }
+        },
+        {
+          "id": "return-to-airport",
+          "title": "Return to departure airport",
+          "dayStart": 8,
+          "dayEnd": 8,
+          "type": "return",
+          "from": { "kind": "place", "ref": "winthrop", "label": "Winthrop, WA" },
+          "to": { "kind": "airport-choice", "ref": null, "label": "Selected airport" },
+          "overnightBase": "",
+          "nights": 0,
+          "driveKm": 320,
+          "driveHours": 4.5,
+          "note": "Seattle is the clean finish. Portland only makes sense if flight network or fare logic matters more than route purity.",
+          "nav": {
+            "mode": "airport-return",
+            "originSource": "leg.from",
+            "destinationSource": "selected-airport",
+            "via": [],
+            "precision": "place"
+          },
+          "airportVariants": {
+            "SEA": {
+              "driveKm": 320,
+              "driveHours": 4.5,
+              "note": "Seattle gives the cleanest western exit."
+            },
+            "PDX": {
+              "driveKm": 590,
+              "driveHours": 7,
+              "note": "Portland is workable, but it clearly stretches the final day and weakens the loop closure."
+            },
+            "PAE": {
+              "driveKm": 245,
+              "driveHours": 3.5,
+              "note": "Paine Field is efficient if the smaller network fits your flights."
+            }
+          }
+        }
+      ],
+      "waypoints": [
+        [-122.3321, 47.6062],
+        [-123.4307, 48.1181],
+        [-123.8002, 48.0582],
+        [-124.3855, 47.9504],
+        [-123.9344, 47.8609],
+        [-124.3707, 47.6147],
+        [-123.8157, 46.9754],
+        [-121.9531, 46.7565],
+        [-121.7360, 46.7850],
+        [-121.6707, 46.6043],
+        [-120.6615, 47.5962],
+        [-120.1862, 48.4784],
+        [-120.6674, 48.5151],
+        [-121.1262, 48.7131],
+        [-121.3990, 48.5343],
+        [-122.3321, 47.6062]
+      ]
+    }
+  ]
+}
