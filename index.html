@@ -11,51 +11,54 @@
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <style>
   :root {
-    --bg-0: #05100a;
-    --bg-1: #0a1a12;
-    --bg-2: #0f2418;
-    --line: rgba(168, 200, 138, 0.22);
-    --line-strong: rgba(168, 200, 138, 0.45);
-    --green: #a8c88a;
-    --green-bright: #c8e0a8;
-    --green-muted: #7a9470;
-    --green-dim: #4a6b54;
-    --text: #e4ece0;
-    --text-soft: #c8d4c0;
-    --gold: #e8c766;
-    --cream: #f4ecd4;
-    --red: #d97757;
-    --ink: #0a110c;
-    --moss: #132319;
-    --pine: #1f3a2a;
-    --sage: #a8c09a;
-    --birch: #e8ddc4;
-    --ember: #c96f3f;
-    --sun: #e8b44c;
-    --fog: #7d8c78;
+    --bg-0: #f3f1ec;
+    --bg-1: #ffffff;
+    --bg-2: #f7f8f5;
+    --surface: #fffdfa;
+    --surface-muted: #eef1ee;
+    --line: rgba(31, 38, 34, 0.13);
+    --line-strong: rgba(31, 38, 34, 0.24);
+    --green: #65786b;
+    --green-bright: #335c4f;
+    --green-muted: #738176;
+    --green-dim: #9aa096;
+    --text: #202622;
+    --text-soft: #5f6861;
+    --gold: #b57d39;
+    --cream: #18211d;
+    --red: #a85b45;
+    --ink: #18211d;
+    --moss: #eef1ee;
+    --pine: #dfe6df;
+    --sage: #8c998e;
+    --birch: #1c2722;
+    --ember: #a85b45;
+    --sun: #b57d39;
+    --fog: #747971;
+    --steel: #4f7384;
+    --shadow-soft: 0 22px 55px -38px rgba(24, 33, 29, 0.42);
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body {
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-weight: 400;
     background: var(--bg-0);
     color: var(--text);
     min-height: 100vh;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
-    line-height: 1.5;
+    line-height: 1.55;
   }
   .mono { font-family: 'JetBrains Mono', monospace; letter-spacing: 0.02em; }
+  .mobile-only { display: none; }
 
   /* ============ HERO ============ */
   .hero {
     position: relative;
-    padding: 4rem 2rem 3rem;
+    padding: 3.4rem 2rem 2.8rem;
     background:
-      radial-gradient(ellipse 80% 60% at 20% 0%, rgba(168, 200, 138, 0.08) 0%, transparent 50%),
-      radial-gradient(ellipse 60% 50% at 80% 100%, rgba(232, 199, 102, 0.05) 0%, transparent 60%),
-      linear-gradient(180deg, #0a1a12 0%, #05100a 100%);
+      linear-gradient(180deg, rgba(236, 239, 236, 0.92) 0%, rgba(243, 241, 236, 0.98) 100%);
     border-bottom: 1px solid var(--line);
     overflow: hidden;
   }
@@ -64,59 +67,67 @@
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(168, 200, 138, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(168, 200, 138, 0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
+      linear-gradient(rgba(31, 38, 34, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(31, 38, 34, 0.035) 1px, transparent 1px);
+    background-size: 48px 48px;
     pointer-events: none;
-    mask-image: radial-gradient(ellipse 80% 60% at center, black 0%, transparent 80%);
-    -webkit-mask-image: radial-gradient(ellipse 80% 60% at center, black 0%, transparent 80%);
+    mask-image: linear-gradient(180deg, black 0%, transparent 86%);
+    -webkit-mask-image: linear-gradient(180deg, black 0%, transparent 86%);
   }
-  .hero-inner { max-width: 1400px; margin: 0 auto; position: relative; }
+  .hero-inner { max-width: 1180px; margin: 0 auto; position: relative; }
   .hero-kicker {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.3em;
-    color: var(--gold); margin-bottom: 1rem;
+    font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.22em;
+    color: var(--steel); margin-bottom: 0.9rem;
     display: flex; align-items: center; gap: 0.75rem;
   }
   .hero-kicker::before, .hero-kicker::after {
-    content: ''; height: 1px; background: var(--gold); opacity: 0.5; flex: 0 1 60px;
+    content: ''; height: 1px; background: var(--line-strong); opacity: 0.8; flex: 0 1 48px;
   }
   .hero h1 {
-    font-size: clamp(2.8rem, 6vw, 5rem);
-    font-weight: 300; letter-spacing: -0.03em; line-height: 0.95;
-    color: var(--cream); margin-bottom: 1rem; max-width: 900px;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(2.35rem, 5vw, 4.35rem);
+    font-weight: 500; letter-spacing: 0; line-height: 1.02;
+    color: var(--ink); margin-bottom: 1rem; max-width: 820px;
   }
-  .hero h1 em { font-style: italic; color: var(--green); font-weight: 400; }
+  .hero h1 em { font-style: italic; color: var(--ember); font-weight: 500; }
   .hero-sub {
-    font-size: 1.1rem; font-weight: 300; color: var(--text-soft);
-    max-width: 620px; line-height: 1.6; font-style: italic;
+    font-size: 1.05rem; font-weight: 400; color: var(--text-soft);
+    max-width: 680px; line-height: 1.65; font-style: normal;
   }
   .hero-meta {
-    margin-top: 2rem; display: flex; gap: 2.5rem; flex-wrap: wrap;
-    font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;
-    text-transform: uppercase; letter-spacing: 0.15em; color: var(--green-muted);
+    margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--fog);
   }
-  .hero-meta-item { display: flex; flex-direction: column; gap: 0.25rem; }
+  .hero-meta-item {
+    display: flex; flex-direction: column; gap: 0.22rem;
+    min-width: 128px; padding: 0.75rem 0.85rem;
+    background: rgba(255, 255, 255, 0.56);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+  }
   .hero-meta-item .value {
-    font-size: 1.5rem; font-family: 'Fraunces', serif; color: var(--cream);
-    text-transform: none; letter-spacing: -0.01em; font-weight: 500;
+    font-size: 1.15rem; font-family: 'Fraunces', serif; color: var(--ink);
+    text-transform: none; letter-spacing: 0; font-weight: 600;
   }
 
   /* ============ CONTAINER ============ */
-  .container { max-width: 1400px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
+  .container { max-width: 1280px; margin: 0 auto; padding: 2rem 2rem 4rem; }
   /* ============ QUICK START ============ */
   .quick-start {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
-    gap: 1.25rem;
+    gap: 1rem;
     margin-bottom: 2rem;
   }
   .quick-start-main,
   .quick-start-side {
-    background: rgba(15, 36, 24, 0.46);
+    background: var(--surface);
     border: 1px solid var(--line);
-    border-radius: 1rem;
+    border-radius: 8px;
     padding: 1.25rem;
+    box-shadow: var(--shadow-soft);
   }
   .quick-start-kicker,
   .loops-kicker {
@@ -124,13 +135,14 @@
     font-size: 0.62rem;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    color: var(--green-muted);
+    color: var(--steel);
     margin-bottom: 0.75rem;
   }
   .quick-start-title {
+    font-family: 'Fraunces', Georgia, serif;
     font-size: clamp(1.35rem, 2.4vw, 2rem);
-    color: var(--cream);
-    letter-spacing: -0.02em;
+    color: var(--ink);
+    letter-spacing: 0;
     margin-bottom: 0.5rem;
   }
   .quick-start-copy {
@@ -145,9 +157,9 @@
     gap: 0.85rem;
   }
   .quick-action {
-    background: linear-gradient(180deg, rgba(31, 58, 42, 0.9) 0%, rgba(15, 36, 24, 0.8) 100%);
-    border: 1px solid rgba(168, 200, 138, 0.16);
-    border-radius: 0.9rem;
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    border-radius: 8px;
     color: var(--text);
     padding: 1rem;
     text-align: left;
@@ -156,8 +168,8 @@
   }
   .quick-action:hover {
     transform: translateY(-2px);
-    border-color: rgba(201, 111, 63, 0.55);
-    box-shadow: 0 18px 36px -24px rgba(0, 0, 0, 0.55);
+    border-color: rgba(168, 91, 69, 0.38);
+    box-shadow: 0 16px 30px -24px rgba(24, 33, 29, 0.5);
   }
   .quick-action .eyebrow {
     display: block;
@@ -165,13 +177,13 @@
     font-size: 0.58rem;
     text-transform: uppercase;
     letter-spacing: 0.18em;
-    color: var(--sun);
+    color: var(--ember);
     margin-bottom: 0.45rem;
   }
   .quick-action strong {
     display: block;
     font-size: 1rem;
-    color: var(--birch);
+    color: var(--ink);
     margin-bottom: 0.35rem;
   }
   .quick-action span:last-child {
@@ -191,12 +203,12 @@
     flex-direction: column;
     gap: 0.2rem;
     padding: 0.7rem 0.85rem;
-    border-radius: 0.75rem;
-    background: rgba(168, 200, 138, 0.05);
-    border: 1px solid rgba(168, 200, 138, 0.08);
+    border-radius: 8px;
+    background: var(--bg-2);
+    border: 1px solid var(--line);
   }
   .quick-start-side li strong {
-    color: var(--cream);
+    color: var(--ink);
     font-size: 0.95rem;
   }
   .quick-start-side li span {
@@ -217,41 +229,44 @@
   .toolbar { display: flex; gap: 1rem; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; }
   .filter-group {
     display: flex; gap: 0.4rem; padding: 0.3rem;
-    background: rgba(15, 36, 24, 0.5); border: 1px solid var(--line); border-radius: 999px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 999px;
+    box-shadow: 0 12px 26px -24px rgba(24, 33, 29, 0.55);
   }
   .filter-btn {
     font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
     text-transform: uppercase; letter-spacing: 0.12em;
     padding: 0.55rem 1rem; background: transparent; border: none;
-    color: var(--green-muted); border-radius: 999px; cursor: pointer;
+    color: var(--text-soft); border-radius: 999px; cursor: pointer;
     transition: all 0.2s; white-space: nowrap;
   }
-  .filter-btn:hover { color: var(--green-bright); }
-  .filter-btn.active { background: var(--green); color: var(--bg-0); font-weight: 600; }
+  .filter-btn:hover { color: var(--ink); }
+  .filter-btn.active { background: var(--ink); color: #fffdfa; font-weight: 600; }
   .search-box { position: relative; flex: 1; max-width: 320px; min-width: 200px; }
   .search-box input {
     width: 100%; padding: 0.7rem 1rem 0.7rem 2.5rem;
     font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;
-    background: rgba(15, 36, 24, 0.5); border: 1px solid var(--line);
+    background: var(--surface); border: 1px solid var(--line);
     border-radius: 999px; color: var(--text); outline: none; transition: all 0.2s;
+    box-shadow: 0 12px 26px -24px rgba(24, 33, 29, 0.55);
   }
   .search-box input::placeholder { color: var(--green-dim); }
-  .search-box input:focus { border-color: var(--green); background: rgba(15, 36, 24, 0.8); }
+  .search-box input:focus { border-color: rgba(79, 115, 132, 0.55); background: #fff; }
   .search-box svg {
     position: absolute; left: 0.9rem; top: 50%; transform: translateY(-50%); color: var(--green-muted);
   }
   .zoom-controls {
     display: flex; gap: 0.3rem; margin-left: auto; padding: 0.3rem;
-    background: rgba(15, 36, 24, 0.5); border: 1px solid var(--line); border-radius: 999px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 999px;
+    box-shadow: 0 12px 26px -24px rgba(24, 33, 29, 0.55);
   }
   .zoom-btn {
     width: 32px; height: 32px; background: transparent; border: none;
-    color: var(--green-muted); cursor: pointer; border-radius: 50%;
+    color: var(--text-soft); cursor: pointer; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     transition: all 0.2s; font-family: 'JetBrains Mono', monospace;
     font-size: 0.9rem; font-weight: 600;
   }
-  .zoom-btn:hover { background: rgba(168, 200, 138, 0.12); color: var(--green-bright); }
+  .zoom-btn:hover { background: rgba(79, 115, 132, 0.1); color: var(--ink); }
 
   /* ============ MAP + SIDEBAR ============ */
   .map-section { display: grid; grid-template-columns: minmax(0, 1fr) 400px; gap: 1.5rem; align-items: start; transition: grid-template-columns 0.5s ease; }
@@ -263,9 +278,9 @@
   /* ============ MAP LEGEND (route-mode) ============ */
   .map-legend {
     position: absolute; bottom: 2.5rem; left: 1.25rem;
-    background: rgba(5, 16, 10, 0.88);
+    background: rgba(255, 253, 250, 0.92);
     border: 1px solid var(--line);
-    border-radius: 0.75rem;
+    border-radius: 8px;
     padding: 0.7rem 0.85rem;
     backdrop-filter: blur(10px);
     font-family: 'JetBrains Mono', monospace;
@@ -281,7 +296,7 @@
     font-size: 0.55rem;
     text-transform: uppercase;
     letter-spacing: 0.22em;
-    color: var(--sun);
+    color: var(--ember);
     margin-bottom: 0.55rem;
   }
   .map-legend-row {
@@ -323,22 +338,23 @@
 
   .map-card {
     position: relative;
-    background: linear-gradient(180deg, #0a1a12 0%, #05100a 100%);
-    border: 1px solid var(--line); border-radius: 1rem; overflow: hidden;
-    box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.6);
+    background: var(--surface);
+    border: 1px solid var(--line); border-radius: 8px; overflow: hidden;
+    box-shadow: var(--shadow-soft);
   }
   .map-header {
     position: absolute; top: 0; left: 0; right: 0; padding: 1rem 1.25rem;
-    background: linear-gradient(180deg, rgba(5, 16, 10, 0.9) 0%, transparent 100%);
+    background: linear-gradient(180deg, rgba(255, 253, 250, 0.94) 0%, rgba(255, 253, 250, 0.75) 72%, transparent 100%);
     display: flex; justify-content: space-between; align-items: flex-start;
     pointer-events: none; z-index: 10;
   }
   .map-header-label {
     font-family: 'JetBrains Mono', monospace; font-size: 0.6rem;
-    text-transform: uppercase; letter-spacing: 0.25em; color: var(--green-muted);
+    text-transform: uppercase; letter-spacing: 0.22em; color: var(--steel);
   }
   .map-header-title {
-    font-size: 0.9rem; color: var(--cream); font-weight: 500; font-style: italic; margin-top: 0.15rem;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 0.96rem; color: var(--ink); font-weight: 600; font-style: normal; margin-top: 0.15rem;
   }
   .map-data-status {
     margin-top: 0.55rem;
@@ -346,8 +362,8 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.35rem 0.55rem;
-    background: rgba(5, 16, 10, 0.72);
-    border: 1px solid rgba(168, 200, 138, 0.12);
+    background: rgba(255, 253, 250, 0.82);
+    border: 1px solid var(--line);
     border-radius: 999px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.62rem;
@@ -361,28 +377,28 @@
     border-radius: 999px;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: var(--ink);
-    background: rgba(168, 200, 138, 0.85);
+    color: #fffdfa;
+    background: var(--steel);
   }
   .map-data-status.seed-only .map-data-status-pill {
-    background: rgba(125, 140, 120, 0.85);
-    color: var(--cream);
+    background: rgba(116, 121, 113, 0.9);
+    color: #fffdfa;
   }
   .map-data-status.has-official .map-data-status-pill {
-    background: rgba(232, 180, 76, 0.92);
-    color: var(--ink);
+    background: var(--gold);
+    color: #fffdfa;
   }
   .map-zoom-badge {
     font-family: 'JetBrains Mono', monospace; font-size: 0.65rem;
-    color: var(--green-muted); background: rgba(5, 16, 10, 0.7);
-    padding: 0.3rem 0.6rem; border-radius: 0.25rem; border: 1px solid var(--line);
+    color: var(--text-soft); background: rgba(255, 253, 250, 0.86);
+    padding: 0.3rem 0.6rem; border-radius: 6px; border: 1px solid var(--line);
     pointer-events: auto;
   }
   #map {
     display: block;
     width: 100%;
     height: 620px;
-    background: radial-gradient(circle at 30% 20%, rgba(168, 200, 138, 0.08), transparent 30%), linear-gradient(180deg, #09130e 0%, #06100b 100%);
+    background: #e8ece8;
   }
   .maplibregl-canvas { cursor: grab; }
   .maplibregl-canvas:active { cursor: grabbing; }
@@ -449,9 +465,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background:
-      radial-gradient(ellipse at top right, rgba(5,16,10,0) 0%, rgba(5,16,10,0.6) 100%),
-      linear-gradient(180deg, transparent 30%, rgba(5,16,10,0.65) 100%);
+    background: linear-gradient(180deg, transparent 30%, rgba(5,16,10,0.65) 100%);
     pointer-events: none;
     z-index: 2;
   }
@@ -548,7 +562,7 @@
     color: var(--birch);
     font-size: 1.3rem;
     font-weight: 400;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
     margin-bottom: 0.4rem;
   }
   .loop-rationale {
@@ -683,9 +697,7 @@
   }
   .slideover-header {
     padding: 1.2rem 1.15rem 1rem;
-    background:
-      radial-gradient(circle at top right, rgba(232, 180, 76, 0.12), transparent 35%),
-      linear-gradient(180deg, rgba(201, 111, 63, 0.08) 0%, rgba(19, 35, 25, 0) 100%);
+    background: linear-gradient(180deg, rgba(201, 111, 63, 0.08) 0%, rgba(19, 35, 25, 0) 100%);
   }
   .slideover-kicker {
     font-family: 'JetBrains Mono', monospace;
@@ -699,7 +711,7 @@
     color: var(--birch);
     font-size: 1.65rem;
     line-height: 1.05;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
     margin-bottom: 0.4rem;
   }
   .slideover-copy {
@@ -811,9 +823,7 @@
   .route-brief-hero {
     position: relative;
     padding: 1.6rem 1.75rem 1.4rem;
-    background:
-      radial-gradient(circle at 85% 20%, rgba(232, 180, 76, 0.12), transparent 45%),
-      linear-gradient(180deg, rgba(201, 111, 63, 0.08) 0%, rgba(19, 35, 25, 0) 100%);
+    background: linear-gradient(180deg, rgba(201, 111, 63, 0.08) 0%, rgba(19, 35, 25, 0) 100%);
     border-bottom: 1px solid rgba(168, 200, 138, 0.12);
   }
   .route-brief-kicker {
@@ -830,7 +840,7 @@
   .route-brief-title {
     font-size: clamp(1.8rem, 3.2vw, 2.4rem);
     color: var(--birch);
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
     line-height: 1.05;
     font-weight: 400;
     margin-bottom: 0.55rem;
@@ -1118,7 +1128,7 @@
     color: var(--cream);
     font-size: 1rem;
     line-height: 1.35;
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
   }
   .build-ownership-route em {
     color: var(--green-bright);
@@ -1465,7 +1475,7 @@
     font-size: 1.25rem;
     color: var(--cream);
     font-weight: 500;
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
   }
   .route-brief-kpi-value small {
     font-family: 'JetBrains Mono', monospace;
@@ -1677,7 +1687,7 @@
     font-family: 'JetBrains Mono', monospace; font-size: 0.6rem;
     text-transform: uppercase; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 0.3rem;
   }
-  .detail-name { font-size: 1.75rem; font-weight: 500; color: var(--cream); letter-spacing: -0.02em; line-height: 1; }
+  .detail-name { font-size: 1.75rem; font-weight: 500; color: var(--cream); letter-spacing: 0; line-height: 1; }
   .detail-state { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-soft); margin-top: 0.25rem; }
   .detail-body { padding: 1.25rem; display: flex; flex-direction: column; gap: 1rem; }
   .detail-desc { font-size: 0.92rem; font-style: italic; color: var(--text-soft); line-height: 1.55; font-weight: 300; }
@@ -1833,7 +1843,7 @@
   .build-panel-title {
     font-size: 1.25rem;
     color: var(--birch);
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
     line-height: 1.1;
   }
   .build-panel-close {
@@ -2146,7 +2156,7 @@
   }
   .section-heading h2 {
     font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 400;
-    color: var(--cream); letter-spacing: -0.02em;
+    color: var(--cream); letter-spacing: 0;
   }
   .section-heading h2 em { color: var(--green); font-style: italic; font-weight: 400; }
   .section-heading .hint {
@@ -2271,7 +2281,7 @@
   }
   .park-card-name {
     font-size: 1.5rem; font-weight: 500; color: var(--cream);
-    letter-spacing: -0.015em; line-height: 1.05;
+    letter-spacing: 0; line-height: 1.05;
   }
   .park-card.span-8 .park-card-name { font-size: 1.9rem; }
   .park-card-state {
@@ -2312,12 +2322,580 @@
     font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;
     text-transform: uppercase; letter-spacing: 0.25em; color: var(--green-muted);
   }
+  .map-loading.error {
+    color: var(--ember);
+    text-align: center;
+    padding: 1.5rem;
+    line-height: 1.6;
+  }
   .map-loading::before {
     content: ''; width: 12px; height: 12px; border-radius: 50%;
     background: var(--green); margin-right: 0.75rem;
     animation: pulse 1.5s ease-in-out infinite;
   }
+  .map-loading.error::before {
+    display: none;
+  }
   @keyframes pulse { 0%, 100% { opacity: 0.3; transform: scale(0.9); } 50% { opacity: 1; transform: scale(1.1); } }
+
+  /* ============ PREMIUM ATLAS REFRESH ============ */
+  h1, h2, h3,
+  .quick-start-title,
+  .loop-card h3,
+  .slideover-title,
+  .route-brief-title,
+  .park-card-name,
+  .detail-name,
+  .build-panel-title {
+    font-family: 'Fraunces', Georgia, serif;
+    letter-spacing: 0;
+  }
+  .hero-inner,
+  .container,
+  .quick-start,
+  .quick-start-main,
+  .quick-start-side,
+  .quick-start-actions,
+  .quick-action,
+  .map-section,
+  .map-card,
+  .sidebar,
+  .slideover,
+  .route-brief,
+  .loop-card,
+  .park-card {
+    min-width: 0;
+  }
+  .hero h1,
+  .hero-sub,
+  .quick-start-title,
+  .quick-start-copy,
+  .quick-action strong,
+  .quick-action span:last-child,
+  .slideover-copy,
+  .route-brief-title,
+  .route-brief-subtitle,
+  .loop-rationale,
+  .park-card-desc {
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+
+  .section-heading {
+    margin: 2.6rem 0 1.15rem;
+  }
+  .section-heading h2 {
+    color: var(--ink);
+    letter-spacing: 0;
+  }
+  .section-heading h2 em {
+    color: var(--ember);
+  }
+  .section-heading .hint,
+  .loop-hub-lede,
+  footer {
+    color: var(--fog);
+  }
+
+  .map-section {
+    gap: 1.25rem;
+  }
+  .map-section.route-focused #map {
+    height: 640px;
+  }
+  .map-footer {
+    background: linear-gradient(0deg, rgba(255, 253, 250, 0.88) 0%, transparent 100%);
+    color: rgba(31, 38, 34, 0.46);
+  }
+  .map-loading {
+    color: var(--steel);
+    background: rgba(255, 253, 250, 0.62);
+  }
+  .map-loading::before {
+    background: var(--steel);
+  }
+  .map-park-tooltip {
+    background: rgba(255, 253, 250, 0.96);
+    border-color: var(--line);
+    box-shadow: 0 16px 36px -24px rgba(24, 33, 29, 0.55);
+  }
+  .map-park-tooltip-name {
+    color: var(--ink);
+  }
+  .map-park-tooltip-meta {
+    color: var(--ember);
+  }
+  .map-park-tooltip-character,
+  .map-park-tooltip-season {
+    color: var(--text-soft);
+  }
+
+  .loop-card,
+  .loop-card.featured,
+  .slideover-panel,
+  .route-brief,
+  .matrix-wrap,
+  .park-card,
+  .build-panel,
+  .sidebar-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    box-shadow: var(--shadow-soft);
+  }
+  .loop-card:hover,
+  .loop-card.active,
+  .park-card:hover {
+    border-color: rgba(168, 91, 69, 0.34);
+    box-shadow: 0 24px 48px -34px rgba(24, 33, 29, 0.46);
+  }
+  .loop-card.featured {
+    border-color: rgba(181, 125, 57, 0.32);
+  }
+  .loop-card.featured::before {
+    top: 0.75rem;
+    left: 0.85rem;
+    color: #fffdfa;
+    background: var(--ink);
+    border-radius: 999px;
+    z-index: 4;
+  }
+  .loop-character {
+    height: 102px;
+    border-bottom: 1px solid var(--line);
+  }
+  .loop-character-bg {
+    filter: brightness(0.82) saturate(0.86);
+  }
+  .loop-card:hover .loop-character-bg {
+    filter: brightness(0.9) saturate(0.95);
+  }
+  .loop-character::before {
+    opacity: 0.14;
+  }
+  .loop-character::after {
+    background: linear-gradient(180deg, rgba(24, 33, 29, 0.04) 0%, rgba(24, 33, 29, 0.68) 100%);
+  }
+  .loop-character-keyword,
+  .loop-character-kicker {
+    color: #fffdfa;
+  }
+  .loop-card .loop-meta,
+  .route-brief-kicker,
+  .route-brief-character-label,
+  .route-airport-label,
+  .route-brief-col-label,
+  .slideover-kicker,
+  .route-why-label,
+  .legend-header,
+  .build-panel-kicker {
+    color: var(--steel);
+  }
+  .loop-card h3,
+  .slideover-empty h3,
+  .slideover-title,
+  .route-brief-title,
+  .route-brief-rationale,
+  .route-why-text,
+  .trip-leg-route,
+  .build-quality-title,
+  .build-stop-name,
+  .build-ownership-route {
+    color: var(--ink);
+  }
+  .loop-rationale,
+  .route-brief-subtitle,
+  .route-brief-quip,
+  .slideover-copy,
+  .slideover-empty,
+  .itinerary-item span,
+  .route-quip,
+  .route-confidence-text,
+  .trip-leg-meta,
+  .trip-leg-note,
+  .trip-export-note,
+  .build-quality-copy,
+  .build-stops-empty,
+  .park-card-desc {
+    color: var(--text-soft);
+  }
+  .loop-rationale strong,
+  .route-brief-rationale strong,
+  .route-why-text strong,
+  .trip-leg-route strong,
+  .trip-leg-base-value strong,
+  .stay-plan-stop strong {
+    color: var(--ember);
+  }
+  .loop-quip,
+  .route-brief-quip,
+  .route-quip {
+    border-left-color: rgba(79, 115, 132, 0.32);
+  }
+  .loop-tag,
+  .trip-leg-status,
+  .trip-export-info,
+  .build-route-status.done {
+    color: var(--steel);
+    background: rgba(79, 115, 132, 0.08);
+    border-color: rgba(79, 115, 132, 0.16);
+  }
+  .loop-stats,
+  .season-strip,
+  .route-brief-character,
+  .route-airport-choice,
+  .trip-controls,
+  .stay-plan,
+  .park-card-footer,
+  .detail-stats,
+  .build-stats,
+  .build-toolbar,
+  .build-panel-header,
+  .build-ownership {
+    border-color: var(--line);
+  }
+  .season-month {
+    background: rgba(31, 38, 34, 0.08);
+  }
+  .season-month.active {
+    background: var(--ember);
+    box-shadow: none;
+  }
+  .season-month.shoulder {
+    background: rgba(181, 125, 57, 0.38);
+  }
+
+  .slideover-header,
+  .route-brief-hero,
+  .route-why,
+  .build-panel-header,
+  .build-ownership {
+    background: linear-gradient(180deg, rgba(238, 241, 238, 0.86) 0%, rgba(255, 253, 250, 0) 100%);
+  }
+  .route-confidence,
+  .route-confidence.preview,
+  .route-confidence.official {
+    background: var(--bg-2);
+    border-color: var(--line);
+  }
+  .route-confidence-icon,
+  .route-confidence.preview .route-confidence-icon,
+  .route-confidence.official .route-confidence-icon {
+    color: #fffdfa;
+    background: var(--steel);
+    border-color: transparent;
+  }
+  .route-confidence-label,
+  .route-confidence.preview .route-confidence-label,
+  .route-confidence.official .route-confidence-label {
+    color: var(--steel);
+  }
+  .route-brief-body,
+  .slideover-section,
+  .route-why {
+    border-color: var(--line);
+  }
+  .route-brief-close,
+  .detail-close {
+    background: rgba(255, 253, 250, 0.88);
+    border-color: var(--line);
+    color: var(--ink);
+  }
+  .route-brief-close:hover,
+  .detail-close:hover {
+    background: var(--ember);
+    border-color: var(--ember);
+    color: #fffdfa;
+  }
+
+  .itinerary-item,
+  .airport-option,
+  .trip-snapshot-item,
+  .stay-plan-stop,
+  .trip-leg-card,
+  .trip-leg-base,
+  .build-stop-item,
+  .build-quality,
+  .quick-action,
+  .quick-start-side li {
+    background: var(--bg-2);
+    border-color: var(--line);
+    border-radius: 8px;
+  }
+  .airport-option,
+  .trip-control-select,
+  .trip-control-btn,
+  .trip-control-link,
+  .trip-leg-link,
+  .trip-leg-remove,
+  .build-toolbar-btn,
+  .build-panel-close,
+  .airport-select {
+    background: var(--surface);
+    border-color: var(--line);
+    color: var(--text);
+  }
+  .airport-option:hover,
+  .airport-option.selected,
+  .trip-control-btn:hover,
+  .trip-control-link:hover,
+  .trip-leg-link:hover,
+  .build-toolbar-btn:hover,
+  .build-panel-close:hover {
+    border-color: rgba(168, 91, 69, 0.34);
+    background: #fff;
+    color: var(--ink);
+  }
+  .airport-option.selected {
+    box-shadow: 0 0 0 2px rgba(168, 91, 69, 0.1);
+  }
+  .airport-option-code,
+  .route-brief-kpi-value,
+  .loop-stat-value,
+  .trip-snapshot-value,
+  .trip-leg-base-value,
+  .airport-option-city {
+    color: var(--ink);
+  }
+  .trip-leg-card::before {
+    background: rgba(79, 115, 132, 0.42);
+  }
+  .trip-leg-card.leg-long-transfer,
+  .build-quality.warning {
+    background: rgba(181, 125, 57, 0.08);
+    border-color: rgba(181, 125, 57, 0.24);
+  }
+  .trip-leg-card.leg-park-day,
+  .build-quality.ok {
+    background: rgba(79, 115, 132, 0.06);
+    border-color: rgba(79, 115, 132, 0.16);
+  }
+  .trip-leg-card.leg-long-transfer .trip-leg-type,
+  .trip-leg-type.leg-return {
+    background: var(--ember);
+    color: #fffdfa;
+  }
+  .trip-leg-type,
+  .trip-leg-type.leg-arrival,
+  .trip-leg-type.leg-drive,
+  .trip-leg-type.leg-park-day {
+    background: rgba(79, 115, 132, 0.14);
+    color: var(--ink);
+  }
+  .trip-leg-warning,
+  .build-quality.danger {
+    color: var(--ember);
+    background: rgba(168, 91, 69, 0.08);
+    border-color: rgba(168, 91, 69, 0.22);
+  }
+  .trip-leg-img img,
+  .detail-img img,
+  .park-card-img img {
+    filter: saturate(0.9) contrast(0.98);
+  }
+  .trip-leg-img::after,
+  .detail-img::after,
+  .park-card-img::after {
+    background: linear-gradient(180deg, transparent 48%, rgba(24, 33, 29, 0.76) 100%);
+  }
+
+  .build-fab {
+    background: rgba(255, 253, 250, 0.94);
+    border-color: rgba(31, 38, 34, 0.18);
+    color: var(--ink);
+    box-shadow: 0 14px 32px -22px rgba(24, 33, 29, 0.58);
+  }
+  .build-fab:hover,
+  .build-fab.active {
+    background: #fff;
+    border-color: rgba(79, 115, 132, 0.34);
+    color: var(--ink);
+  }
+  .build-fab-dot,
+  .build-fab.active .build-fab-dot,
+  .build-route-status.loading::before {
+    background: var(--steel);
+  }
+  .build-panel {
+    margin-top: 1rem;
+  }
+  .build-toolbar-right {
+    gap: 0.45rem;
+  }
+  .build-stop-num {
+    background: rgba(79, 115, 132, 0.12);
+    border-color: rgba(79, 115, 132, 0.28);
+    color: var(--ink);
+  }
+  .build-stop-btn {
+    border-color: var(--line);
+    color: var(--text-soft);
+  }
+  .build-stop-btn:hover {
+    border-color: rgba(79, 115, 132, 0.3);
+    background: rgba(79, 115, 132, 0.08);
+    color: var(--steel);
+  }
+
+  .matrix-wrap {
+    padding: 1.2rem;
+  }
+  table.matrix thead th,
+  table.matrix td.close {
+    color: var(--steel);
+  }
+  table.matrix thead th.corner,
+  table.matrix td.row-label {
+    background: var(--surface);
+    color: var(--ink);
+  }
+  table.matrix td {
+    color: var(--text-soft);
+    border-color: rgba(31, 38, 34, 0.08);
+  }
+
+  .park-card {
+    background: var(--surface);
+  }
+  .park-card-body {
+    background: var(--surface);
+  }
+  .park-card:hover {
+    transform: translateY(-3px);
+  }
+  .park-card-badge,
+  .park-card-type {
+    background: rgba(255, 253, 250, 0.88);
+    border-color: rgba(31, 38, 34, 0.12);
+    color: var(--ink);
+  }
+  .park-card-title .park-card-name,
+  .park-card-title .park-card-state {
+    color: #fffdfa;
+  }
+  .park-card-arrow {
+    color: var(--steel);
+  }
+  .park-card:hover .park-card-arrow {
+    color: var(--ember);
+  }
+
+  footer {
+    border-color: var(--line);
+  }
+
+  @media (max-width: 900px) {
+    .hero {
+      padding: 2.8rem 1.25rem 2.2rem;
+    }
+    .container {
+      padding: 1.35rem 1rem 3rem;
+    }
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+    .hero-meta-item {
+      min-width: 0;
+    }
+    .toolbar {
+      gap: 0.75rem;
+    }
+    .filter-group,
+    .search-box,
+    .zoom-controls {
+      width: 100%;
+      max-width: none;
+    }
+    .filter-group {
+      overflow-x: auto;
+    }
+    .zoom-controls {
+      justify-content: flex-start;
+      margin-left: 0;
+    }
+    #map,
+    .map-section.route-focused #map {
+      height: 520px;
+    }
+    .map-header {
+      padding: 0.85rem;
+    }
+    .map-footer {
+      display: none;
+    }
+    .build-fab {
+      right: 0.8rem;
+      bottom: 0.8rem;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .hero {
+      padding-inline: 1rem;
+    }
+    .mobile-only {
+      display: block;
+    }
+    .hero-inner,
+    .container,
+    .quick-start-main,
+    .quick-start-side,
+    .quick-action {
+      max-width: calc(100vw - 2rem);
+    }
+    .hero-kicker {
+      gap: 0.5rem;
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+    }
+    .hero-kicker::before,
+    .hero-kicker::after {
+      flex-basis: 34px;
+    }
+    .hero h1 {
+      font-size: clamp(1.82rem, 9.5vw, 2.4rem);
+      line-height: 1.08;
+    }
+    .hero h1,
+    .hero-sub,
+    .quick-start-title,
+    .quick-start-copy,
+    .quick-action strong,
+    .quick-action span:last-child {
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+    .hero-sub {
+      font-size: 0.98rem;
+      max-width: 31ch;
+    }
+    .hero-meta {
+      grid-template-columns: 1fr;
+    }
+    .quick-start-main,
+    .quick-start-side,
+    .route-brief-body,
+    .slideover-section {
+      padding: 1rem;
+    }
+    .quick-start-title {
+      font-size: 1.45rem;
+      line-height: 1.28;
+      max-width: 22ch;
+    }
+    .quick-start-copy {
+      max-width: 32ch;
+    }
+    .quick-action span:last-child {
+      max-width: 30ch;
+    }
+    #map,
+    .map-section.route-focused #map {
+      height: 460px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -2325,17 +2903,17 @@
 <!-- ========== HERO ========== -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-kicker">Ein interaktiver Atlas · Est. 2026</div>
-    <h1>Nationalparks<br>des <em>amerikanischen Westens</em></h1>
+    <div class="hero-kicker">Route-first Roadtrip Planner</div>
+    <h1>Nationalpark-<br class="mobile-only">Routen im <em>amerikanischen<br class="mobile-only"> Westen</em></h1>
     <p class="hero-sub">
-      Zwölf Parks zwischen Pazifikküste, Sierra Nevada und den Rocky Mountains —
-      kuratiert, kartiert, und verknüpft durch die großen Straßenrouten des Westens.
+      Kuratierte Loops, Flughafeneinstiege, Tagesstruktur und Karten-Export für
+      praktische Roadtrips zwischen Pazifikküste, Sierra Nevada und Rocky Mountains.
     </p>
     <div class="hero-meta">
       <div class="hero-meta-item"><span class="value">12</span><span>Parks</span></div>
-      <div class="hero-meta-item"><span class="value">6</span><span>Staaten</span></div>
       <div class="hero-meta-item"><span class="value">4</span><span>Routen</span></div>
-      <div class="hero-meta-item"><span class="value">3,600 km</span><span>Längste Strecke</span></div>
+      <div class="hero-meta-item"><span class="value">Airports</span><span>Einstieg wählen</span></div>
+      <div class="hero-meta-item"><span class="value">Maps</span><span>Export bereit</span></div>
     </div>
   </div>
 </section>
@@ -2345,9 +2923,9 @@
   <section class="quick-start" aria-label="Schnellstart">
     <div class="quick-start-main">
       <div class="quick-start-kicker">Schnellstart</div>
-      <h2 class="quick-start-title">Plane den Westen über Routen, nicht über zufällige Park-Klicks.</h2>
+      <h2 class="quick-start-title">Starte mit einer Route, nicht mit einer leeren Karte.</h2>
       <p class="quick-start-copy">
-        Der neue Fokus liegt auf kuratierten Roadtrips statt auf einer bloßen Atlas-Ansicht. Starte mit einer fertigen Route, wähle einen Flughafen als Einstieg und vertiefe dann die Parks, die wirklich zu deinem Reiseprofil passen.
+        Wähle einen fertigen Loop, prüfe Fahrlogik und Einstieg, und öffne danach die Details zu Parks, Übernachtungsbasen und Tagesetappen.
       </p>
       <div class="quick-start-actions">
         <button class="quick-action" data-loop-focus="wyoming-double" type="button">
@@ -2358,7 +2936,7 @@
         <button class="quick-action" data-loop-focus="california-grand" type="button">
           <span class="eyebrow">10–14 Tage</span>
           <strong>California Grand</strong>
-          <span>Yosemite, Sequoia, Redwood und Joshua Tree in einer echten Westküsten-Logik.</span>
+          <span>Granit, Mammutbäume, Küste und Wüste in einer großen Kalifornien-Schleife.</span>
         </button>
         <button class="quick-action" data-loop-focus="desert-southwest" type="button">
           <span class="eyebrow">7–10 Tage</span>
@@ -2368,11 +2946,11 @@
       </div>
     </div>
     <aside class="quick-start-side" aria-label="Produktlogik">
-      <div class="quick-start-kicker">Warum das besser ist</div>
+      <div class="quick-start-kicker">Was du hier planst</div>
       <ul>
-        <li><strong>Kuratierte Loops zuerst</strong><span>Die wichtigsten Routen werden wie ein Reiseprodukt erzählt und nicht nur als Verbindungslinien gezeigt.</span></li>
-        <li><strong>Karte als Produktfläche</strong><span>Die Karte wird zum Navigationsraum für Route, Park und später den Routenbau.</span></li>
-        <li><strong>Flughafenbewusste Planung</strong><span>Der Eintritt in die Route wird über Flughäfen und reale Anreise gedacht.</span></li>
+        <li><strong>Routen zuerst</strong><span>Vier belastbare Loops statt einer losen Sammlung von Park-Pins.</span></li>
+        <li><strong>Reale Einstiege</strong><span>Flughäfen, Rückwege und lange Transferetappen bleiben sichtbar.</span></li>
+        <li><strong>Direkte Übergabe</strong><span>Google- und Apple-Maps-Links bleiben Teil der Planung.</span></li>
       </ul>
     </aside>
   </section>
@@ -2422,8 +3000,8 @@
         <div class="slideover-panel">
           <div class="slideover-empty">
             <h3>Wähle eine Route oder einen Park</h3>
-            <p>Öffne unten eine kuratierte Route für den kompletten Routenbrief mit Tagesstruktur, Übernachtungsbasen, Fahrzeiten und Flughafen-Einstieg. Oder tippe direkt einen Park auf der Karte an.</p>
-            <p>Im Routenbau kannst du dir eine eigene Route zusammenstellen.</p>
+            <p>Öffne eine kuratierte Route für Tagesstruktur, Übernachtungsbasen, Fahrzeiten und Flughafen-Einstieg. Oder tippe direkt einen Park auf der Karte an.</p>
+            <p>Für eigene Reihenfolgen nutzt du den Routenbau auf der Karte.</p>
           </div>
         </div>
       </div>
@@ -2437,7 +3015,7 @@
       <span class="hint">Kuratiert · nicht algorithmisch</span>
     </div>
     <p class="loop-hub-lede">
-      Vier Antworten auf die Frage „welchen Westen willst du sehen?" — jede Route existiert aus einem konkreten Grund, nicht weil sie gut aussieht auf einer Karte.
+      Vier klare Roadtrip-Logiken für den Westen: kurze Rocky-Mountains-Woche, große Kalifornien-Schleife, Wüstenroute und Washington-Loop.
     </p>
     <div class="route-grid" id="route-grid"></div>
   </section>
@@ -2453,7 +3031,7 @@
 
 <footer>
   <p>Nationalparks des amerikanischen Westens · Routenorientierte Reiseplanung</p>
-  <p>4 kuratierte Loops · operative Reisepläne · offizielle Straßenrouten · Routenbau · Google-&amp;-Apple-Maps-Export</p>
+  <p>4 kuratierte Loops · Tagesstruktur · Flughafeneinstieg · Google-&amp;-Apple-Maps-Export</p>
 </footer>
 
 <script>
@@ -2842,6 +3420,17 @@ const LOOPS = [
 
 const REGIONS = ["Alle", "Westküste", "Rocky Mountains"];
 const HIGHLIGHT_STATES = new Set(PARKS.map(p => p.stateCode));
+const COUNTRY_CONTEXT = [
+  { id: "canada", label: "Kanada", bounds: [-130, 49, -96, 57], fill: "#dfe8e6", labelPoint: [-118.2, 52.6] },
+  { id: "usa", label: "USA", bounds: [-130, 24, -96, 49], fill: "#f2efe7", labelPoint: [-113.8, 41.5] },
+  { id: "mexico", label: "Mexiko", bounds: [-123, 18, -96, 32.4], fill: "#eee3d5", labelPoint: [-111.5, 28.1] }
+];
+const ROUTE_REGION_CONTEXT = [
+  { id: "california-grand", label: "California", bounds: [-124.8, 32.1, -114.0, 42.2], color: "#a85b45", labelPoint: [-119.7, 37.2] },
+  { id: "pacific-northwest-crown", label: "Pacific Northwest", bounds: [-125.2, 45.1, -116.3, 49.4], color: "#4f7384", labelPoint: [-121.3, 47.6] },
+  { id: "wyoming-double", label: "Wyoming / Montana", bounds: [-116.4, 42.0, -104.0, 49.4], color: "#65786b", labelPoint: [-110.1, 45.4] },
+  { id: "desert-southwest", label: "Desert Southwest", bounds: [-118.8, 32.0, -109.0, 38.6], color: "#b57d39", labelPoint: [-113.7, 35.8] }
+];
 
 /* =============================================================
    STATE
@@ -4196,6 +4785,90 @@ function getVisibleParks() {
 /* =============================================================
    MAP via MapLibre
    ============================================================= */
+function boundsToPolygon(bounds) {
+  const [west, south, east, north] = bounds;
+  return [[
+    [west, south],
+    [east, south],
+    [east, north],
+    [west, north],
+    [west, south]
+  ]];
+}
+
+function buildCountryContextFeatures() {
+  return {
+    type: "FeatureCollection",
+    features: COUNTRY_CONTEXT.map(item => ({
+      type: "Feature",
+      properties: {
+        id: item.id,
+        label: item.label,
+        fill: item.fill
+      },
+      geometry: {
+        type: "Polygon",
+        coordinates: boundsToPolygon(item.bounds)
+      }
+    }))
+  };
+}
+
+function buildCountryLabelFeatures() {
+  return {
+    type: "FeatureCollection",
+    features: COUNTRY_CONTEXT.map(item => ({
+      type: "Feature",
+      properties: {
+        id: item.id,
+        label: item.label
+      },
+      geometry: {
+        type: "Point",
+        coordinates: item.labelPoint
+      }
+    }))
+  };
+}
+
+function buildRouteRegionFeatures() {
+  return {
+    type: "FeatureCollection",
+    features: ROUTE_REGION_CONTEXT.map(item => ({
+      type: "Feature",
+      properties: {
+        id: item.id,
+        label: item.label,
+        color: item.color,
+        active: state.selectedLoopId === item.id ? 1 : 0
+      },
+      geometry: {
+        type: "Polygon",
+        coordinates: boundsToPolygon(item.bounds)
+      }
+    }))
+  };
+}
+
+function buildRouteRegionLabelFeatures() {
+  return {
+    type: "FeatureCollection",
+    features: ROUTE_REGION_CONTEXT.map(item => ({
+      type: "Feature",
+      properties: {
+        id: item.id,
+        label: item.label,
+        color: item.color,
+        active: state.selectedLoopId === item.id ? 1 : 0
+      },
+      geometry: {
+        type: "Point",
+        coordinates: item.labelPoint
+      }
+    }))
+  };
+}
+
 function buildLoopFeatures() {
   return buildLoopFeatureCollection();
 }
@@ -4389,28 +5062,154 @@ function getTripBounds(loop, trip = null) {
   return bounds;
 }
 
+function setMapLoading(message = "", isError = false) {
+  const loadingEl = document.getElementById("map-loading");
+  if (!loadingEl) return;
+  if (!message) {
+    loadingEl.style.display = "none";
+    loadingEl.classList.remove("error");
+    return;
+  }
+  loadingEl.textContent = message;
+  loadingEl.classList.toggle("error", isError);
+  loadingEl.style.display = "flex";
+}
+
 function initMap() {
   const map = new maplibregl.Map({
     container: "map",
-    style: "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
-    center: [-118, 41],
-    zoom: 4.5,
+    style: "https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json",
+    center: [-113.5, 40.8],
+    zoom: 3.55,
     minZoom: 3,
     maxZoom: 12,
-    maxBounds: [[-130, 24], [-100, 50]],
+    maxBounds: [[-135, 20], [-92, 57]],
     attributionControl: false
   });
 
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
 
-  map.on("load", () => {
-    state.map = map;
+  const mapLoadTimeout = window.setTimeout(() => {
+    setMapLoading("Karte lädt weiter", false);
+  }, 8000);
 
+  map.on("error", event => {
+    console.warn("MapLibre loading error", event?.error || event);
+    if (!state.map) {
+      window.clearTimeout(mapLoadTimeout);
+      setMapLoading("Karte konnte nicht geladen werden", true);
+    }
+  });
+
+  map.once("style.load", () => {
+    window.clearTimeout(mapLoadTimeout);
+    state.map = map;
+    const boundaryLayerId = map.getLayer("boundary_state") ? "boundary_state" : undefined;
+
+    map.addSource("country-context", { type: "geojson", data: buildCountryContextFeatures() });
+    map.addSource("country-labels", { type: "geojson", data: buildCountryLabelFeatures() });
+    map.addSource("route-regions", { type: "geojson", data: buildRouteRegionFeatures() });
+    map.addSource("route-region-labels", { type: "geojson", data: buildRouteRegionLabelFeatures() });
     map.addSource("loops", { type: "geojson", data: buildLoopFeatures() });
     map.addSource("parks", { type: "geojson", data: buildParkFeatures() });
     map.addSource("airports", { type: "geojson", data: buildAirportFeatures() });
     map.addSource("trip-connectors", { type: "geojson", data: buildTripConnectorFeatures() });
     map.addSource("trip-bases", { type: "geojson", data: buildTripBaseFeatures() });
+
+    map.addLayer({
+      id: "country-context-fill",
+      type: "fill",
+      source: "country-context",
+      paint: {
+        "fill-color": ["get", "fill"],
+        "fill-opacity": 0.1
+      }
+    }, boundaryLayerId);
+    map.addLayer({
+      id: "country-context-outline",
+      type: "line",
+      source: "country-context",
+      paint: {
+        "line-color": "rgba(65, 76, 72, 0.24)",
+        "line-width": 1,
+        "line-opacity": 0.35
+      }
+    }, boundaryLayerId);
+    map.addLayer({
+      id: "country-context-label",
+      type: "symbol",
+      source: "country-labels",
+      layout: {
+        "text-field": ["get", "label"],
+        "text-size": ["interpolate", ["linear"], ["zoom"], 3, 10, 5, 12],
+        "text-font": ["Open Sans Bold"],
+        "text-letter-spacing": 0.16,
+        "text-transform": "uppercase",
+        "text-allow-overlap": true
+      },
+      paint: {
+        "text-color": "rgba(42, 51, 48, 0.45)",
+        "text-halo-color": "rgba(255, 253, 250, 0.78)",
+        "text-halo-width": 1.2
+      }
+    });
+    map.addLayer({
+      id: "route-regions-fill",
+      type: "fill",
+      source: "route-regions",
+      paint: {
+        "fill-color": ["get", "color"],
+        "fill-opacity": [
+          "case",
+          ["==", ["get", "active"], 1], 0.08,
+          0.02
+        ]
+      }
+    }, boundaryLayerId);
+    map.addLayer({
+      id: "route-regions-outline",
+      type: "line",
+      source: "route-regions",
+      paint: {
+        "line-color": ["get", "color"],
+        "line-width": [
+          "case",
+          ["==", ["get", "active"], 1], 2.2,
+          1.1
+        ],
+        "line-opacity": [
+          "case",
+          ["==", ["get", "active"], 1], 0.52,
+          0.22
+        ]
+      }
+    }, boundaryLayerId);
+    map.addLayer({
+      id: "route-region-label",
+      type: "symbol",
+      source: "route-region-labels",
+      layout: {
+        "text-field": ["get", "label"],
+        "text-size": ["interpolate", ["linear"], ["zoom"], 3, 9, 6, 11],
+        "text-font": ["Open Sans Bold"],
+        "text-letter-spacing": 0.09,
+        "text-transform": "uppercase"
+      },
+      paint: {
+        "text-color": [
+          "case",
+          ["==", ["get", "active"], 1], "#18211d",
+          "rgba(38, 48, 44, 0.48)"
+        ],
+        "text-halo-color": "rgba(255, 253, 250, 0.82)",
+        "text-halo-width": 1.15,
+        "text-opacity": [
+          "case",
+          ["==", ["get", "active"], 1], 1,
+          ["interpolate", ["linear"], ["zoom"], 3, 0.55, 5, 0.82]
+        ]
+      }
+    });
 
     // Dim layer: all non-active loops (only visible in Explore mode)
     map.addLayer({
@@ -4418,24 +5217,24 @@ function initMap() {
       type: "line",
       source: "loops",
       paint: {
-        "line-color": "#7d8c78",
-        "line-width": 1.2,
-        "line-opacity": 0.22,
-        "line-dasharray": [1, 2.5]
+        "line-color": "#667871",
+        "line-width": 1.35,
+        "line-opacity": 0.34,
+        "line-dasharray": [1, 2.25]
       }
     });
 
-    // Active OFFICIAL route: solid ember, fat, with halo
+    // Active OFFICIAL route: clear but restrained atlas line with a light halo.
     map.addLayer({
       id: "loops-active-halo",
       type: "line",
       source: "loops",
       filter: ["all", ["==", ["get", "id"], ""], ["==", ["get", "routeStatus"], "official"]],
       paint: {
-        "line-color": "#c96f3f",
-        "line-width": ["interpolate", ["linear"], ["zoom"], 4, 7, 8, 12],
-        "line-opacity": 0.18,
-        "line-blur": 4
+        "line-color": "#ffffff",
+        "line-width": ["interpolate", ["linear"], ["zoom"], 4, 7, 8, 11],
+        "line-opacity": 0.78,
+        "line-blur": 2.5
       }
     });
     map.addLayer({
@@ -4444,9 +5243,9 @@ function initMap() {
       source: "loops",
       filter: ["all", ["==", ["get", "id"], ""], ["==", ["get", "routeStatus"], "official"]],
       paint: {
-        "line-color": "#e8b44c",
-        "line-width": ["interpolate", ["linear"], ["zoom"], 4, 2.8, 6, 3.8, 8, 4.8],
-        "line-opacity": 0.95
+        "line-color": "#a85b45",
+        "line-width": ["interpolate", ["linear"], ["zoom"], 4, 2.6, 6, 3.5, 8, 4.4],
+        "line-opacity": 0.92
       },
       layout: {
         "line-cap": "round",
@@ -4454,16 +5253,16 @@ function initMap() {
       }
     });
 
-    // Active PREVIEW route: thin dotted fog-grey — reads as a sketch, not a road
+    // Active PREVIEW route: thin dotted grey-blue — reads as a sketch, not a road.
     map.addLayer({
       id: "loops-active-preview",
       type: "line",
       source: "loops",
       filter: ["all", ["==", ["get", "id"], ""], ["!=", ["get", "routeStatus"], "official"]],
       paint: {
-        "line-color": "#9aa896",
+        "line-color": "#4f7384",
         "line-width": ["interpolate", ["linear"], ["zoom"], 4, 1.4, 6, 1.8, 8, 2.2],
-        "line-opacity": 0.78,
+        "line-opacity": 0.74,
         "line-dasharray": [0.6, 2]
       }
     });
@@ -4475,11 +5274,11 @@ function initMap() {
       paint: {
         "line-color": [
           "case",
-          ["==", ["get", "segmentType"], "prefix"], "#a8c88a",
-          "#7d8c78"
+          ["==", ["get", "segmentType"], "prefix"], "#4f7384",
+          "#747971"
         ],
         "line-width": ["interpolate", ["linear"], ["zoom"], 4, 1.1, 8, 1.8],
-        "line-opacity": 0.72,
+        "line-opacity": 0.68,
         "line-dasharray": [1.2, 1.8]
       },
       layout: {
@@ -4494,8 +5293,8 @@ function initMap() {
       source: "trip-bases",
       paint: {
         "circle-radius": ["interpolate", ["linear"], ["zoom"], 4, 7, 8, 10],
-        "circle-color": "#1f3a2a",
-        "circle-stroke-color": "#e8b44c",
+        "circle-color": "#fffdfa",
+        "circle-stroke-color": "#a85b45",
         "circle-stroke-width": 1.8,
         "circle-opacity": 0.95
       }
@@ -4513,9 +5312,9 @@ function initMap() {
         "text-ignore-placement": true
       },
       paint: {
-        "text-color": "#f4ecd4",
-        "text-halo-color": "#0a110c",
-        "text-halo-width": 0.8
+        "text-color": "#18211d",
+        "text-halo-color": "#fffdfa",
+        "text-halo-width": 1.2
       }
     });
 
@@ -4526,9 +5325,9 @@ function initMap() {
       filter: ["all", ["==", ["get", "dimmed"], 0], ["==", ["get", "onActiveLoop"], 0]],
       paint: {
         "circle-radius": ["interpolate", ["linear"], ["zoom"], 4, 5, 8, 8],
-        "circle-color": "#e8ddc4",
+        "circle-color": "#fffdfa",
         "circle-stroke-width": 2,
-        "circle-stroke-color": "#0a110c",
+        "circle-stroke-color": "#18211d",
         "circle-opacity": 0.95
       }
     });
@@ -4540,10 +5339,10 @@ function initMap() {
       filter: ["==", ["get", "dimmed"], 1],
       paint: {
         "circle-radius": ["interpolate", ["linear"], ["zoom"], 4, 4.5, 8, 7],
-        "circle-color": "#a8c09a",
-        "circle-opacity": 0.22,
+        "circle-color": "#8c998e",
+        "circle-opacity": 0.28,
         "circle-stroke-width": 1,
-        "circle-stroke-color": "#0a110c"
+        "circle-stroke-color": "#fffdfa"
       }
     });
     map.addLayer({
@@ -4555,12 +5354,12 @@ function initMap() {
         "circle-radius": ["interpolate", ["linear"], ["zoom"], 4, 10, 8, 14],
         "circle-color": [
           "case",
-          ["==", ["get", "isStart"], 1], "#c96f3f",
-          "#e8b44c"
+          ["==", ["get", "isStart"], 1], "#a85b45",
+          "#b57d39"
         ],
         "circle-opacity": 1,
         "circle-stroke-width": 2.5,
-        "circle-stroke-color": "#0a110c"
+        "circle-stroke-color": "#fffdfa"
       }
     });
 
@@ -4578,7 +5377,7 @@ function initMap() {
         "text-ignore-placement": true
       },
       paint: {
-        "text-color": "#0a110c",
+        "text-color": "#18211d",
         "text-halo-width": 0
       }
     });
@@ -4589,8 +5388,8 @@ function initMap() {
       source: "airports",
       paint: {
         "circle-radius": ["case", ["==", ["get", "selected"], 1], 13, 10],
-        "circle-color": "rgba(5, 16, 10, 0.82)",
-        "circle-stroke-color": "#e8b44c",
+        "circle-color": "rgba(255, 253, 250, 0.9)",
+        "circle-stroke-color": "#4f7384",
         "circle-stroke-width": ["case", ["==", ["get", "selected"], 1], 2.4, 1.6],
         "circle-opacity": ["case", ["==", ["get", "selected"], 1], 0.96, 0.68]
       }
@@ -4608,8 +5407,8 @@ function initMap() {
         "text-ignore-placement": true
       },
       paint: {
-        "text-color": "#e8b44c",
-        "text-halo-color": "#0a110c",
+        "text-color": "#4f7384",
+        "text-halo-color": "#fffdfa",
         "text-halo-width": 1.4,
         "text-opacity": ["case", ["==", ["get", "selected"], 1], 1, 0.74]
       }
@@ -4628,12 +5427,12 @@ function initMap() {
       paint: {
         "text-color": [
           "case",
-          ["==", ["get", "onActiveLoop"], 1], "#f4ecd4",
-          ["==", ["get", "dimmed"], 1], "#7d8c78",
-          "#f4ecd4"
+          ["==", ["get", "onActiveLoop"], 1], "#18211d",
+          ["==", ["get", "dimmed"], 1], "#92978f",
+          "#202622"
         ],
-        "text-halo-color": "#0a110c",
-        "text-halo-width": 1.25,
+        "text-halo-color": "#fffdfa",
+        "text-halo-width": 1.5,
         "text-opacity": [
           "case",
           ["==", ["get", "dimmed"], 1], 0.22,
@@ -4776,10 +5575,10 @@ function initMap() {
       type: "line",
       source: "build-route",
       paint: {
-        "line-color": "#5bc8b0",
+        "line-color": "#ffffff",
         "line-width": ["interpolate", ["linear"], ["zoom"], 4, 6, 8, 10],
-        "line-opacity": 0.12,
-        "line-blur": 5
+        "line-opacity": 0.5,
+        "line-blur": 3
       }
     });
     map.addLayer({
@@ -4787,9 +5586,9 @@ function initMap() {
       type: "line",
       source: "build-route",
       paint: {
-        "line-color": "#5bc8b0",
+        "line-color": "#4f7384",
         "line-width": ["interpolate", ["linear"], ["zoom"], 4, 1.8, 6, 2.6, 8, 3.2],
-        "line-opacity": 0.88,
+        "line-opacity": 0.84,
         "line-dasharray": [2, 1.2]
       },
       layout: { "line-cap": "round", "line-join": "round" }
@@ -4800,8 +5599,8 @@ function initMap() {
       source: "build-parks",
       paint: {
         "circle-radius": ["interpolate", ["linear"], ["zoom"], 4, 10, 8, 14],
-        "circle-color": "#132319",
-        "circle-stroke-color": "#5bc8b0",
+        "circle-color": "#fffdfa",
+        "circle-stroke-color": "#4f7384",
         "circle-stroke-width": 2.2,
         "circle-opacity": 1
       }
@@ -4818,9 +5617,9 @@ function initMap() {
         "text-ignore-placement": true
       },
       paint: {
-        "text-color": "#5bc8b0",
-        "text-halo-color": "#0a110c",
-        "text-halo-width": 0.5
+        "text-color": "#18211d",
+        "text-halo-color": "#fffdfa",
+        "text-halo-width": 1
       }
     });
 
@@ -4848,7 +5647,7 @@ function initMap() {
       }
     }
 
-    document.getElementById("map-loading").style.display = "none";
+    setMapLoading();
   });
 }
 
@@ -4897,6 +5696,14 @@ function renderMapFeatures() {
   const activeParkIds = activeLoop ? getTripParkIds(activeLoop, activeTrip) : [];
   const activeParkIdSet = new Set(activeParkIds);
   const buildParkIdSet = buildState.active ? new Set(buildState.stops.map(p => p.id)) : new Set();
+  const routeRegionSource = state.map.getSource("route-regions");
+  if (routeRegionSource) {
+    routeRegionSource.setData(buildRouteRegionFeatures());
+  }
+  const routeRegionLabelSource = state.map.getSource("route-region-labels");
+  if (routeRegionLabelSource) {
+    routeRegionLabelSource.setData(buildRouteRegionLabelFeatures());
+  }
 
   if (parkSource) {
     parkSource.setData({
