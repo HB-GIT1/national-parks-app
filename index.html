@@ -308,7 +308,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    overflow-y: auto;
+    overflow: hidden;
     overscroll-behavior: contain;
     scrollbar-gutter: stable;
     -webkit-overflow-scrolling: touch;
@@ -316,6 +316,15 @@
     touch-action: pan-y;
   }
   .sidebar > * { pointer-events: auto; }
+  .sidebar > #build-panel-slot,
+  .sidebar > .slideover {
+    min-height: 0;
+  }
+  .sidebar.sidebar-build-active > #build-panel-slot {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+  }
   /* sidebar-hidden is toggled by JS when nothing is selected */
   .sidebar.sidebar-hidden {
     display: none;
@@ -1868,14 +1877,25 @@
     background: linear-gradient(180deg, rgba(19, 35, 25, 0.97) 0%, rgba(10, 17, 12, 0.99) 100%);
     border: 1px solid rgba(168, 200, 138, 0.18);
     border-radius: 1rem;
-    overflow: hidden;
+    overflow: hidden auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+    -webkit-overflow-scrolling: touch;
     box-shadow: 0 28px 56px -36px rgba(0, 0, 0, 0.7);
     display: none;
     margin-top: 1rem;
   }
   .build-panel.visible { display: block; animation: fadeIn 0.28s ease; }
+  .sidebar.sidebar-build-active .build-panel.visible {
+    flex: 1 1 auto;
+    max-height: 100%;
+    margin-top: 0;
+  }
 
   .build-panel-header {
+    position: sticky;
+    top: 0;
+    z-index: 3;
     padding: 1.1rem 1.2rem 1rem;
     border-bottom: 1px solid rgba(168, 200, 138, 0.1);
     background: linear-gradient(180deg, rgba(168, 200, 138, 0.06) 0%, rgba(19, 35, 25, 0) 100%);
@@ -2780,6 +2800,9 @@
   .build-panel {
     margin-top: 1rem;
   }
+  .sidebar.sidebar-build-active .build-panel-header {
+    background: var(--surface);
+  }
   .build-toolbar-right {
     gap: 0.45rem;
   }
@@ -2896,7 +2919,7 @@
       max-width: 100%;
       max-height: min(72dvh, 680px);
       padding: 0.5rem;
-      overflow-y: auto;
+      overflow: hidden;
       pointer-events: auto;
     }
   }
@@ -6027,7 +6050,50 @@ function renderParkImg(park, loading, hideContainer, cssClass, altOverride) {
 
 function setSidebarVisibility(visible) {
   const sidebar = document.querySelector(".sidebar");
-  if (sidebar) sidebar.classList.toggle("sidebar-hidden", !visible);
+  if (!sidebar) return;
+  sidebar.classList.toggle("sidebar-hidden", !visible);
+  sidebar.classList.toggle("sidebar-build-active", Boolean(sidebar.querySelector(".build-panel.visible")));
+}
+
+function getBuildPanelScroller(target) {
+  if (!(target instanceof Element)) return null;
+  const panel = target.closest(".build-panel.visible");
+  if (!panel || panel.scrollHeight <= panel.clientHeight + 1) return null;
+  return panel;
+}
+
+function scrollBuildPanel(panel, deltaY) {
+  const maxScroll = panel.scrollHeight - panel.clientHeight;
+  const nextScroll = Math.max(0, Math.min(maxScroll, panel.scrollTop + deltaY));
+  const didScroll = Math.abs(nextScroll - panel.scrollTop) > 0.5;
+  if (didScroll) panel.scrollTop = nextScroll;
+  return didScroll;
+}
+
+function handleBuildPanelWheel(event) {
+  const panel = getBuildPanelScroller(event.target);
+  if (!panel || !scrollBuildPanel(panel, event.deltaY)) return;
+  event.preventDefault();
+  event.stopPropagation();
+}
+
+let buildPanelTouch = null;
+
+function handleBuildPanelTouchStart(event) {
+  const panel = getBuildPanelScroller(event.target);
+  buildPanelTouch = panel && event.touches.length
+    ? { panel, y: event.touches[0].clientY }
+    : null;
+}
+
+function handleBuildPanelTouchMove(event) {
+  if (!buildPanelTouch || !event.touches.length) return;
+  const y = event.touches[0].clientY;
+  const deltaY = buildPanelTouch.y - y;
+  buildPanelTouch.y = y;
+  if (!scrollBuildPanel(buildPanelTouch.panel, deltaY)) return;
+  event.preventDefault();
+  event.stopPropagation();
 }
 
 function renderDetail() {
@@ -7280,6 +7346,12 @@ window.shareCurrentRoute = shareCurrentRoute;
 /* =============================================================
    EVENTS
    ============================================================= */
+document.addEventListener("wheel", handleBuildPanelWheel, { passive: false, capture: true });
+document.addEventListener("touchstart", handleBuildPanelTouchStart, { passive: true, capture: true });
+document.addEventListener("touchmove", handleBuildPanelTouchMove, { passive: false, capture: true });
+document.addEventListener("touchend", () => { buildPanelTouch = null; }, { passive: true, capture: true });
+document.addEventListener("touchcancel", () => { buildPanelTouch = null; }, { passive: true, capture: true });
+
 let searchDebounceTimer = 0;
 document.getElementById("search").addEventListener("input", e => {
   state.search = e.target.value;
