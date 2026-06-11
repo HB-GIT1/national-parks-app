@@ -286,8 +286,12 @@
   .zoom-btn:hover { background: rgba(79, 115, 132, 0.1); color: var(--ink); }
 
   /* ============ MAP + SIDEBAR ============ */
-  .map-section { position: relative; }
-  .map-section.route-focused #map { height: 780px; }
+  .map-section {
+    position: relative;
+    --map-frame-height: min(780px, calc(100dvh - 2rem));
+    --map-focused-height: min(640px, calc(100dvh - 3rem));
+  }
+  .map-section.route-focused #map { height: var(--map-focused-height); }
   @media (max-width: 1024px) { .map-section { grid-template-columns: 1fr; } }
 
   /* Sidebar as overlay panel over the map */
@@ -298,7 +302,8 @@
     bottom: 0.75rem;
     width: 420px;
     max-width: calc(100% - 1.5rem);
-    max-height: calc(100% - 1.5rem);
+    max-height: min(calc(100% - 1.5rem), calc(100dvh - 2rem));
+    min-height: 0;
     z-index: 20;
     display: flex;
     flex-direction: column;
@@ -308,6 +313,7 @@
     scrollbar-gutter: stable;
     -webkit-overflow-scrolling: touch;
     pointer-events: auto;
+    touch-action: pan-y;
   }
   .sidebar > * { pointer-events: auto; }
   /* sidebar-hidden is toggled by JS when nothing is selected */
@@ -446,7 +452,7 @@
   #map {
     display: block;
     width: 100%;
-    height: 780px;
+    height: var(--map-frame-height);
     background: #e8ece8;
   }
   .maplibregl-canvas { cursor: grab; }
@@ -2888,7 +2894,9 @@
       position: static;
       width: 100%;
       max-width: 100%;
+      max-height: min(72dvh, 680px);
       padding: 0.5rem;
+      overflow-y: auto;
       pointer-events: auto;
     }
   }
@@ -6026,7 +6034,7 @@ function renderDetail() {
   const slot = document.getElementById("slideover-slot");
   const activeLoop = getActiveLoop();
   const selectedOnActiveLoop = isSelectedParkOnActiveLoop();
-  const hasContent = !!(state.selected || state.selectedLoopId);
+  const hasContent = !!(state.selected || state.selectedLoopId || buildState.active);
   setSidebarVisibility(hasContent);
 
   if (state.selected && (selectedOnActiveLoop || !state.selectedLoopId)) {
@@ -6392,7 +6400,7 @@ function renderDetail() {
   }
   if (!state.selected) {
     slot.innerHTML = "";
-    setSidebarVisibility(false);
+    if (!buildState.active) setSidebarVisibility(false);
     syncShareUrl();
     return;
   }
@@ -6557,7 +6565,7 @@ function renderModeTitle() {
 
 function renderAll() {
   const mapSection = document.querySelector(".map-section");
-  const routeFocused = Boolean(state.selectedLoopId);
+  const routeFocused = Boolean(state.selectedLoopId || buildState.active);
   const hadRouteFocus = mapSection?.classList.contains("route-focused");
   if (mapSection) {
     mapSection.classList.toggle("route-focused", routeFocused);
